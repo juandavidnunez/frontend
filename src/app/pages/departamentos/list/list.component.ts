@@ -24,4 +24,18 @@ export class ListComponent implements OnInit {
       console.log(JSON.stringify(this.departamentos));
     });
   }
+  deleteDepartment(id: number): void {
+    // Implementar la lógica para eliminar un departamento
+    console.log('Eliminar departamento con id:', id);
+  }
+
+  updateDepartment(id: number): void {
+    // Implementar la lógica para actualizar un departamento
+    console.log('Actualizar departamento con id:', id);
+  }
+
+  createDepartment(): void {
+    // Implementar la lógica para crear un nuevo departamento
+    console.log('Crear un nuevo departamento');
+  }
 }

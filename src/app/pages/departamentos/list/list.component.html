@@ -2,6 +2,14 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--7">
+  <!-- Button for creating new department -->
+  <div class="row mb-3">
+    <div class="col">
+      <button class="btn btn-success" (click)="createDepartment()">
+        <i class="fas fa-hand-paper"></i> Crear
+      </button>
+    </div>
+  </div>
   <!-- Table -->
   <div class="row">
     <div class="col">
@@ -13,25 +21,25 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col-1">ID</th>
-                <th scope="col-3">Nombre</th>
-                <th scope="col-4">Ciudades</th>
-                <th scope="col-4">Opciones</th>
+                <th class="col-1">ID</th>
+                <th class="col-3">Nombre</th>
+                <th class="col-3">Opciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let departamento of departamentos">
-                <td>{{ departamento.id }}</td>
-                <td>{{ departamento.nombre }}</td>
+              <tr *ngFor="let actual of departamentos">
+                <td>{{actual.id}}</td>
+                <td>{{actual.nombre}}</td>
                 <td>
-                  <ul>
-                    <li *ngFor="let ciudad of departamento.ciudades">{{ ciudad.nombre }}</li>
-                  </ul>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-primary btn-sm">Crear</button>
-                  <button type="button" class="btn btn-success btn-sm">Actualizar</button>
-                  <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                  <button class="btn btn-danger btn-sm" (click)="deleteDepartment(actual.id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                  <button class="btn btn-warning btn-sm" (click)="updateDepartment(actual.id)">
+                    <i class="fas fa-user-edit"></i>
+                  </button>
+                  <button class="btn btn-dark btn-sm" (click)="createDepartment()">
+                    <i class="fas fa-hand-paper"></i>
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -41,3 +49,4 @@
     </div>
   </div>
 </div>
+
