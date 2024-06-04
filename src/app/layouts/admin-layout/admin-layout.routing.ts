@@ -12,7 +12,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'tables',         component: TablesComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
-    { path:"theaters",
-    loadChildren: () => import('src/app/pages/theaters/theaters.module').then(m => m.TheatersModule)
+    {path:"administrador",
+    loadChildren: () => import('src/app/pages/administrador/administrador.module').then(m => m.AdministradorModule)
+    },
+    {path:"departamentos",
+    loadChildren: () => import('src/app/pages/departamentos/departamentos.module').then(m => m.DepartamentosModule)
     }
 ];

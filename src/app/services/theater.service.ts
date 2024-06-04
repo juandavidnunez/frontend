@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+/*import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
@@ -19,4 +19,4 @@ export class TheaterService {
     this.http.delete<Theater>(`${environment.url_ms_cinema}/theater/${id}`,
     );
     }
-}
+}**/
