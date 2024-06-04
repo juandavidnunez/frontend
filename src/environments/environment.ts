@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url_ms_funeraria_p3:"http://127.0.0.1:3333"
+  url_ms_funeraria_p3:"http://127.0.0.1:3333",
+  url_ms_security: "http://localhost:8181/api"
 };
 
 /*

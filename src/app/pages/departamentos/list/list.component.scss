@@ -1,0 +1,54 @@
+// Variables de colores para un tema fúnebre
+$background-color: #1a1a1a; // Fondo oscuro
+$card-background-color: #2e2e2e; // Fondo de la tarjeta ligeramente más claro
+$text-color: #e0e0e0; // Texto claro
+$header-color: #111111; // Encabezado muy oscuro
+$table-header-color: #333333; // Encabezado de tabla oscuro
+$table-row-color: #3e3e3e; // Fila de tabla
+$table-row-hover-color: #555555; // Fila de tabla al pasar el cursor
+
+// Aplicar estilos
+.header {
+  background-color: $header-color;
+}
+
+.container-fluid {
+  background-color: $background-color;
+}
+
+.card {
+  background-color: $card-background-color;
+  color: $text-color;
+
+  .card-header {
+    background-color: $header-color;
+    border-bottom: 1px solid $table-header-color;
+  }
+
+  .card-body {
+    background-color: $card-background-color;
+  }
+}
+
+.table {
+  color: $text-color;
+
+  thead {
+    background-color: $table-header-color;
+  }
+
+  tbody {
+    tr {
+      background-color: $table-row-color;
+
+      &:hover {
+        background-color: $table-row-hover-color;
+      }
+    }
+  }
+}
+
+.table th,
+.table td {
+  border: 1px solid $table-header-color;
+}
