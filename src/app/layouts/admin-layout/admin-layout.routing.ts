@@ -35,5 +35,20 @@ export const AdminLayoutRoutes: Routes = [
     },
     {path:"ejecucion-servicio",
     loadChildren: () => import('src/app/pages/ejecucion-servicio/ejecucion-servicio.module').then(m => m.EjecucionServicioModule)
+    },
+    {path:"chats",
+    loadChildren: () => import('src/app/pages/chats/chats.module').then(m => m.ChatsModule)
+    },
+    {path:"mensajes",
+    loadChildren: () => import('src/app/pages/mensajes/mensajes.module').then(m => m.MensajesModule)
+    },
+    {path:"suscripciones",
+    loadChildren: () => import('src/app/pages/suscripciones/suscripciones.module').then(m => m.SuscripcionesModule)
+    },
+    {path:"pagos",
+    loadChildren: () => import('src/app/pages/pagos/pagos.module').then(m => m.PagosModule)
+    },
+    {path:"planes",
+    loadChildren: () => import('src/app/pages/planes/planes.module').then(m => m.PlanesModule)
     }
 ];

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Cremaciones } from 'src/app/models/cremaciones.model';
-import { CremacionesService } from 'src/app/services/cremaciones.service';
+import { Planes } from 'src/app/models/planes.model';
+import { PlanesService } from 'src/app/services/planes.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,10 +9,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  cremaciones: Cremaciones[];
+  planes: Planes[];
 
-  constructor(private service: CremacionesService) { 
-    this.cremaciones = [];
+  constructor(private service: PlanesService) { 
+    this.planes = [];
   }
 
   ngOnInit(): void {
@@ -21,14 +21,14 @@ export class ListComponent implements OnInit {
 
   list() {
     this.service.list().subscribe(data => {
-      this.cremaciones = data;
-      console.log(JSON.stringify(this.cremaciones));
+      this.planes = data;
+      console.log(JSON.stringify(this.planes));
     });
   }
-  deleteCremacion(id: number): void {
+  deletePlanes(id: number): void {
     Swal.fire({
-      title: 'Eliminar cremaciones',
-      text: '¿Está seguro que quiere eliminar este cremaciones?',
+      title: 'Eliminar planes',
+      text: '¿Está seguro que quiere eliminar este planes?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#232323', 
@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
         this.service.delete(id).subscribe(data => {
           Swal.fire({
             title: 'Eliminado!',
-            text: 'El cremaciones ha sido eliminado correctamente.',
+            text: 'El planes ha sido eliminado correctamente.',
             icon: 'success',
             confirmButtonColor: '#232323', 
             background: '#1c1c1c', 
@@ -52,16 +52,16 @@ export class ListComponent implements OnInit {
         });
       }
     });
-    console.log('Eliminar cremación con id:', id);
+    console.log('Eliminar Planes con id:', id);
   }
 
-  updateCremacion(id: number): void {
+  updatePlanes(id: number): void {
     // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar cremación con id:', id);
+    console.log('Actualizar Planes con id:', id);
   }
 
-  createCremacion(): void {
+  createPlanes(): void {
     // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear una nueva cremación');
+    console.log('Crear una nueva Planes');
   }
 }
