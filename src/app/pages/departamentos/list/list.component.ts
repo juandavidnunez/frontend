@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { Departamentos } from 'src/app/models/departamentos.model';
 import { DepartamentosService } from 'src/app/services/departamentos.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   departamentos: Departamentos[];
 
-  constructor(private service: DepartamentosService) { 
+  constructor(private service: DepartamentosService,private router:Router) { 
     this.departamentos = [];
   }
 
@@ -57,16 +58,16 @@ export class ListComponent implements OnInit {
   }
 
   updateDepartment(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar departamento con id:', id);
+    this.router.navigate(["departamentos/update/"+id])
+
   }
 
   createDepartment(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear un nuevo departamento');
+    this.router.navigate(["departamentos/create"])
+
   }
   viewDepartment(id: number): void {
-    // Implementar la lógica para ver un departamento
-    console.log('Ver departamento con id:', id);
+    this.router.navigate(["departamentos/view/"+id])
+
   }
 }

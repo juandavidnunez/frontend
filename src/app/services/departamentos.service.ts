@@ -15,6 +15,15 @@ export class DepartamentosService {
     map(response => response.data)
   );
   }
+  view(id:number): Observable<Departamentos>{
+    return this.http.get< Departamentos >(`${environment.url_ms_funeraria_p3}/departamentos/${id}`) ;
+   }
+   create(newDepartamento: Departamentos):Observable<Departamentos>{
+    return this.http.post<Departamentos>(`${environment.url_ms_funeraria_p3}/departamentos` ,newDepartamento);
+   }
+   update(TheDepartamento: Departamentos):Observable<Departamentos>{
+    return this.http.put<Departamentos>(`${environment.url_ms_funeraria_p3}/departamentos/${TheDepartamento.id}`,TheDepartamento );
+   }
   delete(id:number){
     return this.http.delete<Departamentos>(`${environment.url_ms_funeraria_p3}/departamentos/${id}` );
   }
