@@ -1,0 +1,55 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Button for creating new department -->
+  <div class="row mb-3">
+    <div class="col">
+      <button class="btn btn-success" (click)="createCremacion()">
+        <i class="fas fa-hand-paper"></i> Crear
+      </button>
+    </div>
+  </div>
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 class="mb-0">Cremaciones</h3>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="col-1">ID</th>
+                <th class="col-3">Ubicación</th>
+                <th class="col-3">Fecha y Hora</th>
+                <th class="col-3">Servicio ID</th>
+                <th class="col-3">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let actual of cremaciones">
+                <td>{{actual.id}}</td>
+                <td>{{actual.ubicacion}}</td>
+                <td>{{actual.fecha_hora}}</td>
+                <td>{{actual.servicio_id}}</td>
+                <td>
+                  <button class="btn btn-danger btn-sm" (click)="deleteCremacion(actual.id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                  <button class="btn btn-warning btn-sm" (click)="updateCremacion(actual.id)">
+                    <i class="fas fa-user-edit"></i>                 
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
