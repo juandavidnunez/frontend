@@ -15,6 +15,7 @@ export class DepartamentosService {
     map(response => response.data)
   );
   }
+  
   delete(id:number){
     return this.http.delete<Departamentos>(`${environment.url_ms_funeraria_p3}/departamentos/${id}` );
   }
