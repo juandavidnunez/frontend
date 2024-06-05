@@ -17,5 +17,23 @@ export const AdminLayoutRoutes: Routes = [
     },
     {path:"departamentos",
     loadChildren: () => import('src/app/pages/departamentos/departamentos.module').then(m => m.DepartamentosModule)
+    },
+    {path:"servicios",
+    loadChildren: () => import('src/app/pages/servicios/servicios.module').then(m => m.ServiciosModule)
+    },
+    {path:"traslados",
+    loadChildren: () => import('src/app/pages/traslados/traslados.module').then(m => m.TrasladosModule)
+    },
+    {path:"cremaciones",
+    loadChildren: () => import('src/app/pages/cremaciones/cremaciones.module').then(m => m.CremacionesModule)
+    },
+    {path:"sepulturas",
+    loadChildren: () => import('src/app/pages/sepulturas/sepulturas.module').then(m => m.SepulturasModule)
+    },
+    {path:"comentarios",
+    loadChildren: () => import('src/app/pages/comentarios/comentarios.module').then(m => m.ComentariosModule)
+    },
+    {path:"ejecucion-servicio",
+    loadChildren: () => import('src/app/pages/ejecucion-servicio/ejecucion-servicio.module').then(m => m.EjecucionServicioModule)
     }
 ];
