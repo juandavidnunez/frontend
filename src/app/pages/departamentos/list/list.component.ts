@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Departamentos } from 'src/app/models/departamentos.model';
 import { DepartamentosService } from 'src/app/services/departamentos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list',
@@ -25,7 +26,33 @@ export class ListComponent implements OnInit {
     });
   }
   deleteDepartment(id: number): void {
-    // Implementar la lógica para eliminar un departamento
+    Swal.fire({
+      title: 'Eliminar departamento',
+      text: '¿Está seguro que quiere eliminar este departamento?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#232323', 
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+      background: '#1c1c1c', 
+      color: '#ffffff' 
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.delete(id).subscribe(data => {
+          Swal.fire({
+            title: 'Eliminado!',
+            text: 'El departamento ha sido eliminado correctamente.',
+            icon: 'success',
+            confirmButtonColor: '#232323', 
+            background: '#1c1c1c', 
+            color: '#ffffff' 
+          });
+          this.ngOnInit();
+        });
+      }
+    });
+
     console.log('Eliminar departamento con id:', id);
   }
 
@@ -37,5 +64,9 @@ export class ListComponent implements OnInit {
   createDepartment(): void {
     // Implementar la lógica para crear un nuevo departamento
     console.log('Crear un nuevo departamento');
+  }
+  viewDepartment(id: number): void {
+    // Implementar la lógica para ver un departamento
+    console.log('Ver departamento con id:', id);
   }
 }
