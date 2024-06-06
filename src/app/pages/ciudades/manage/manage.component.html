@@ -1,1 +1,66 @@
-<p>manage works!</p>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 *ngIf="mode === 1">Visualizar</h3>
+          <h3 *ngIf="mode === 2">Crear</h3>
+          <h3 *ngIf="mode === 3">Actualizar</h3>
+        </div>
+        <div class="card-body">
+          <div class="container">
+            <div class="row mb-3">
+              <div class="col-4">Id:</div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="ciudad.id" disabled>
+              </div>
+            </div>
+            <form [formGroup]="theFormGroup">
+              <div class="row mb-3">
+                <div class="col-4">Nombre:</div>
+                <div class="col-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="ciudad.nombre"
+                    [disabled]="mode === 1"
+                    formControlName="nombre"
+                  >
+                  <div *ngIf="formControls.nombre.errors && (formControls.nombre.dirty || formControls.nombre.touched)" class="text-danger">
+                    <strong *ngIf="formControls.nombre.errors.required">Requerido</strong>
+                    <strong *ngIf="formControls.nombre.errors.minlength || formControls.nombre.errors.maxlength">Inválido</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-4">departamento_id:</div>
+                <div class="col-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="ciudad.departamento_id"
+                    [disabled]="mode === 1"
+                    formControlName="departamento_id"
+                  >
+                  <div *ngIf="formControls.departamento_id.errors && (formControls.departamento_id.dirty || formControls.departamento_id.touched)" class="text-danger">
+                    <strong *ngIf="formControls.departamento_id.errors.required">Requerido</strong>
+                    <strong *ngIf="formControls.departamento_id.errors.min || formControls.departamento_id.errors.max">Inválido</strong>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-8">
+                <button *ngIf="mode === 2" (click)="create()" type="button" class="btn btn-create btn-block">Crear</button>
+                <button *ngIf="mode === 3" (click)="update()" type="button" class="btn btn-update btn-block">Actualizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

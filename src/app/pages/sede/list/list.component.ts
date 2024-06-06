@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Ciudades } from 'src/app/models/ciudades.model';
-import { CiudadesService } from 'src/app/services/ciudades.service';
+import { Sede } from 'src/app/models/sede.model';
+import { SedeService } from 'src/app/services/sede.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,10 +10,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  Ciudades: Ciudades[];
 
-  constructor(private service: CiudadesService,private router:Router) { 
-    this.Ciudades = [];
+  sedes:Sede[];
+
+  constructor(private service: SedeService,private router:Router) { 
+    this.sedes = [];
   }
 
   ngOnInit(): void {
@@ -22,14 +23,14 @@ export class ListComponent implements OnInit {
 
   list() {
     this.service.list().subscribe(data => {
-      this.Ciudades = data;
-      console.log(JSON.stringify(this.Ciudades));
+      this.sedes = data;
+      console.log(JSON.stringify(this.sedes));
     });
   }
-  delete(id: number): void {
+  deleteDepartment(id: number): void {
     Swal.fire({
-      title: 'Eliminar departamento',
-      text: '¿Está seguro que quiere eliminar este departamento?',
+      title: 'Eliminar Sede',
+      text: '¿Está seguro que quiere eliminar este Sede?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#232323', 
@@ -43,7 +44,7 @@ export class ListComponent implements OnInit {
         this.service.delete(id).subscribe(data => {
           Swal.fire({
             title: 'Eliminado!',
-            text: 'El departamento ha sido eliminado correctamente.',
+            text: 'El Sede ha sido eliminado correctamente.',
             icon: 'success',
             confirmButtonColor: '#232323', 
             background: '#1c1c1c', 
@@ -54,20 +55,20 @@ export class ListComponent implements OnInit {
       }
     });
 
-    console.log('Eliminar departamento con id:', id);
+    console.log('Eliminar Sede con id:', id);
   }
 
-  update(id: number): void {
-    this.router.navigate(["ciudades/update/"+id])
+  updateDepartment(id: number): void {
+    this.router.navigate(["sede/update/"+id])
 
   }
 
-  create(): void {
-    this.router.navigate(["ciudades/create"])
+  createDepartment(): void {
+    this.router.navigate(["sede/create"])
 
   }
-  view(id: number): void {
-    this.router.navigate(["ciudades/view/"+id])
+  viewDepartment(id: number): void {
+    this.router.navigate(["sede/view/"+id])
 
   }
 }

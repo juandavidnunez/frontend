@@ -50,5 +50,11 @@ export const AdminLayoutRoutes: Routes = [
     },
     {path:"planes",
     loadChildren: () => import('src/app/pages/planes/planes.module').then(m => m.PlanesModule)
+    },
+    {path:"ciudades",
+    loadChildren: () => import('src/app/pages/ciudades/ciudades.module').then(m => m.CiudadesModule)
+    },
+    {path:"sede",
+    loadChildren: () => import('src/app/pages/sede/sede.module').then(m => m.SedeModule)
     }
 ];

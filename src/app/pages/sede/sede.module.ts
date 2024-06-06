@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SedeRoutingModule } from './sede-routing.module';
 import { ListComponent } from './list/list.component';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CiudadesRoutingModule } from './ciudades-routing.module';
 import { ManageComponent } from './manage/manage.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,9 +14,9 @@ import { ManageComponent } from './manage/manage.component';
   ],
   imports: [
     CommonModule,
-    CiudadesRoutingModule,
+    SedeRoutingModule,
     FormsModule,
     ReactiveFormsModule
   ]
 })
-export class CiudadesModule { }
+export class SedeModule { }
