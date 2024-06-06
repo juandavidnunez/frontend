@@ -9,13 +9,32 @@ import { Observable, map } from 'rxjs';
 })
 export class CremacionesService {
 
-  constructor(private http: HttpClient) {   }
+  constructor(private http: HttpClient) {}
   list(): Observable<Cremaciones[]> {
-    return this.http.get<{ data: Cremaciones[] }>(`${environment.url_ms_funeraria_p3}/cremaciones`) .pipe(
-    map(response => response.data)
-  );
+    return this.http
+      .get<{ data: Cremaciones[] }>(
+        `${environment.url_ms_funeraria_p3}/cremaciones`
+      )
+      .pipe(map((response) => response.data));
   }
-  delete(id:number){
-    return this.http.delete<Cremaciones>(`${environment.url_ms_funeraria_p3}/cremaciones/${id}` );
+  view(id: number): Observable<Cremaciones> {
+    return this.http.get<Cremaciones>(
+      `${environment.url_ms_funeraria_p3}/cremaciones/${id}`
+    );
+  }
+  create(newCremacion: Cremaciones): Observable<Cremaciones> {
+    return this.http.post<Cremaciones>(
+      `${environment.url_ms_funeraria_p3}/cremaciones`,newCremacion
+    );
+  }
+  update(theCremacion: Cremaciones): Observable<Cremaciones> {
+    return this.http.put<Cremaciones>(
+      `${environment.url_ms_funeraria_p3}/cremaciones/${theCremacion.id}`,theCremacion
+    );
+  }
+  delete(id: number) {
+    return this.http.delete<Cremaciones>(
+      `${environment.url_ms_funeraria_p3}/cremaciones/${id}`
+    );
   }
 }

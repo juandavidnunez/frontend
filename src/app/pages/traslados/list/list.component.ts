@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Traslados } from 'src/app/models/traslados.model';
 import { TrasladosService } from 'src/app/services/traslados.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   traslados: Traslados[];
 
-  constructor(private service: TrasladosService) { 
+  constructor(private service: TrasladosService, private router:Router) { 
     this.traslados = [];
   }
 
@@ -55,13 +56,18 @@ export class ListComponent implements OnInit {
     console.log('Eliminar traslado con id:', id);
   }
 
+  viewTraslados(id:number){
+    this.router.navigate(["traslados/view/"+id])
+    console.log('Visualizar a ', id)
+  }
+
   updateTraslados(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar traslados con id:', id);
+    this.router.navigate(["traslados/update/"+id])
+    console.log('Actualizar servicio con id:', id);
   }
 
   createTraslados(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear un nuevo traslados');
+    this.router.navigate(["traslados/create/"])
+    console.log('Crear un nuevo servicio');
   }
 }

@@ -41,6 +41,9 @@
                 <td>{{actual.precio_final}}</td>
                 <td>{{actual.estado}}</td>
                 <td>
+                  <button class="btn btn-view btn-sm" (click)="viewPlanes(actual.id)">
+                    <i class="fas fa-eye"></i>
+                  </button>
                   <button class="btn btn-danger btn-sm" (click)="deletePlanes(actual.id)">
                     <i class="fas fa-trash-alt"></i>
                   </button>

@@ -1,1 +1,97 @@
-<p>manage works!</p>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 *ngIf="mode === 1">visualizar</h3>
+          <h3 *ngIf="mode === 2">crear</h3>
+          <h3 *ngIf="mode === 3">actualizar</h3>
+        </div>
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                Id:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="ejecucion_servicio.id" disabled>
+              </div>
+            </div>
+            <form [formGroup]="theFormGroup">
+
+            <div class="row">
+              <div class="col-4">
+                Descripción:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="ejecucion_servicio.descripcion"
+                 [disabled]="mode==1" formControlName="descripcion">
+
+                 <br>
+                 <div
+                 *ngIf="getTheFormGroup.descripcion.errors &&(getTheFormGroup.descripcion.dirty|| getTheFormGroup.descripcion.touched)">
+                <strong *ngIf="getTheFormGroup.descripcion.errors.required" class="msnError">Requerido</strong>
+                <strong *ngIf="getTheFormGroup.descripcion.errors.minlength||getTheFormGroup.descripcion.errors.maxlength" class="msnError">invalido</strong>
+
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                  Servicio ID:
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" [(ngModel)]="ejecucion_servicio.servicio_id"
+                   [disabled]="mode==1" formControlName="servicio_id">
+  
+                   <br>
+                   <div
+                   *ngIf="getTheFormGroup.servicio_id.errors &&(getTheFormGroup.servicio_id.dirty|| getTheFormGroup.servicio_id.touched)">
+                  <strong *ngIf="getTheFormGroup.servicio_id.errors.required" class="msnError">Requerido</strong>
+                  <strong *ngIf="getTheFormGroup.servicio_id.errors.minlength||getTheFormGroup.servicio_id.errors.maxlength" class="msnError">invalido</strong>
+  
+  
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-4">
+                  Cliente ID:
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" [(ngModel)]="ejecucion_servicio.cliente_id"
+                   [disabled]="mode==1" formControlName="cliente_id">
+  
+                   <br>
+                   <div
+                   *ngIf="getTheFormGroup.cliente_id.errors &&(getTheFormGroup.cliente_id.dirty|| getTheFormGroup.cliente_id.touched)">
+                  <strong *ngIf="getTheFormGroup.cliente_id.errors.required" class="msnError">Requerido</strong>
+                  <strong *ngIf="getTheFormGroup.cliente_id.errors.minlength||getTheFormGroup.cliente_id.errors.maxlength" class="msnError">invalido</strong>
+  
+  
+                  </div>
+                </div>
+              </div>
+
+          </form>
+
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-8">
+                <button *ngIf="mode==2" (click)="create()" type="button" class="btn btn-create btn-block">crear</button>
+                <button *ngIf="mode==3" (click)="update()" type="button" class="btn btn-update btn-block">actualizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

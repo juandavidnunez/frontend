@@ -15,6 +15,21 @@ export class PagosService {
     map(response => response.data)
   );
   }
+  view(id: number): Observable<Pagos> {
+    return this.http.get<Pagos>(
+      `${environment.url_ms_funeraria_p3}/pagos/${id}`
+    );
+  }
+  create(newPago: Pagos): Observable<Pagos> {
+    return this.http.post<Pagos>(
+      `${environment.url_ms_funeraria_p3}/pagos`,newPago
+    );
+  }
+  update(thePago: Pagos): Observable<Pagos> {
+    return this.http.put<Pagos>(
+      `${environment.url_ms_funeraria_p3}/pagos/${thePago.id}`,thePago
+    );
+  }
   delete(id:number){
     return this.http.delete<Pagos>(`${environment.url_ms_funeraria_p3}/pagos/${id}` );
   }

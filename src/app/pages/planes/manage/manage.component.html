@@ -1,1 +1,143 @@
-<p>manage works!</p>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 *ngIf="mode === 1">visualizar</h3>
+          <h3 *ngIf="mode === 2">crear</h3>
+          <h3 *ngIf="mode === 3">actualizar</h3>
+        </div>
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                Id:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="plan.id" disabled>
+              </div>
+            </div>
+            <form [formGroup]="theFormGroup">
+
+            <div class="row">
+              <div class="col-4">
+                Nombre:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="plan.nombre"
+                 [disabled]="mode==1" formControlName="nombre">
+
+                 <br>
+                 <div
+                 *ngIf="getTheFormGroup.nombre.errors &&(getTheFormGroup.nombre.dirty|| getTheFormGroup.nombre.touched)">
+                <strong *ngIf="getTheFormGroup.nombre.errors.required" class="msnError">Requerido</strong>
+                <strong *ngIf="getTheFormGroup.nombre.errors.minlength||getTheFormGroup.nombre.errors.maxlength" class="msnError">invalido</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                Precio:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="plan.precio"
+                 [disabled]="mode==1" formControlName="precio">
+
+                 <br>
+                 <div
+                 *ngIf="getTheFormGroup.precio.errors &&(getTheFormGroup.precio.dirty|| getTheFormGroup.precio.touched)">
+                <strong *ngIf="getTheFormGroup.precio.errors.required" class="msnError">Requerido</strong>
+                <strong *ngIf="getTheFormGroup.precio.errors.minlength||getTheFormGroup.precio.errors.maxlength" class="msnError">invalido</strong>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+            <div class="col-4">
+                Duración:
+            </div>
+            <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="plan.duracion"
+                [disabled]="mode==1" formControlName="duracion">
+
+                <br>
+                <div
+                *ngIf="getTheFormGroup.duracion.errors &&(getTheFormGroup.duracion.dirty|| getTheFormGroup.duracion.touched)">
+                <strong *ngIf="getTheFormGroup.duracion.errors.required" class="msnError">Requerido</strong>
+                <strong *ngIf="getTheFormGroup.duracion.errors.minlength||getTheFormGroup.duracion.errors.maxlength" class="msnError">invalido</strong>
+                </div>
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    Descuento:
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" [(ngModel)]="plan.descuento"
+                    [disabled]="mode==1" formControlName="descuento">
+    
+                    <br>
+                    <div
+                    *ngIf="getTheFormGroup.descuento.errors &&(getTheFormGroup.descuento.dirty|| getTheFormGroup.descuento.touched)">
+                    <strong *ngIf="getTheFormGroup.descuento.errors.required" class="msnError">Requerido</strong>
+                    <strong *ngIf="getTheFormGroup.descuento.errors.minlength||getTheFormGroup.descuento.errors.maxlength" class="msnError">invalido</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    Precio Final:
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" [(ngModel)]="plan.precio_final"
+                    [disabled]="mode==1" formControlName="precio_final">
+    
+                    <br>
+                    <div
+                    *ngIf="getTheFormGroup.precio_final.errors &&(getTheFormGroup.precio_final.dirty|| getTheFormGroup.precio_final.touched)">
+                    <strong *ngIf="getTheFormGroup.precio_final.errors.required" class="msnError">Requerido</strong>
+                    <strong *ngIf="getTheFormGroup.precio_final.errors.minlength||getTheFormGroup.precio_final.errors.maxlength" class="msnError">invalido</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    Estado:
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" [(ngModel)]="plan.estado"
+                    [disabled]="mode==1" formControlName="estado">
+    
+                    <br>
+                    <div
+                    *ngIf="getTheFormGroup.estado.errors &&(getTheFormGroup.estado.dirty|| getTheFormGroup.estado.touched)">
+                    <strong *ngIf="getTheFormGroup.estado.errors.required" class="msnError">Requerido</strong>
+                    <strong *ngIf="getTheFormGroup.estado.errors.minlength||getTheFormGroup.estado.errors.maxlength" class="msnError">invalido</strong>
+                    </div>
+                </div>
+            </div>
+
+          </form>
+
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-8">
+                <button *ngIf="mode==2" (click)="create()" type="button" class="btn btn-create btn-block">crear</button>
+                <button *ngIf="mode==3" (click)="update()" type="button" class="btn btn-update btn-block">actualizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

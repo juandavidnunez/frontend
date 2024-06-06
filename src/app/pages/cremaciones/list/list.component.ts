@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cremaciones } from 'src/app/models/cremaciones.model';
 import { CremacionesService } from 'src/app/services/cremaciones.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   cremaciones: Cremaciones[];
 
-  constructor(private service: CremacionesService) { 
+  constructor(private service: CremacionesService, private router:Router) { 
     this.cremaciones = [];
   }
 
@@ -55,13 +56,18 @@ export class ListComponent implements OnInit {
     console.log('Eliminar cremación con id:', id);
   }
 
+  viewCremacion(id:number){
+    this.router.navigate(["cremaciones/view/"+id])
+    console.log('Visualizar a ', id)
+  }
+
   updateCremacion(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar cremación con id:', id);
+    this.router.navigate(["cremaciones/update/"+id])
+    console.log('Actualizar servicio con id:', id);
   }
 
   createCremacion(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear una nueva cremación');
+    this.router.navigate(["cremaciones/create/"])
+    console.log('Crear un nuevo servicio');
   }
 }

@@ -37,6 +37,9 @@
                 <td>{{actual.chat_id}}</td>
                 <td>{{actual.user_id}}</td>
                 <td>
+                  <button class="btn btn-view btn-sm" (click)="viewMensajes(actual.id)">
+                    <i class="fas fa-eye"></i>
+                  </button>
                   <button class="btn btn-danger btn-sm" (click)="deleteMensajes(actual.id)">
                     <i class="fas fa-trash-alt"></i>
                   </button>

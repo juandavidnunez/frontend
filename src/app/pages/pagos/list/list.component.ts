@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pagos } from 'src/app/models/pagos.model';
 import { PagosService } from 'src/app/services/pagos.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   pagos: Pagos[];
 
-  constructor(private service: PagosService) { 
+  constructor(private service: PagosService, private router:Router) { 
     this.pagos = [];
   }
 
@@ -55,13 +56,18 @@ export class ListComponent implements OnInit {
     console.log('Eliminar pagos con id:', id);
   }
 
+  viewPagos(id:number){
+    this.router.navigate(["pagos/view/"+id])
+    console.log('Visualizar a ', id)
+  }
+
   updatePagos(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar pagos con id:', id);
+    this.router.navigate(["pagos/update/"+id])
+    console.log('Actualizar servicio con id:', id);
   }
 
   createPagos(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear una nueva pagos');
+    this.router.navigate(["pagos/create/"])
+    console.log('Crear un nuevo servicio');
   }
 }

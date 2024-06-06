@@ -8,10 +8,10 @@ $table-row-color: #3e3e3e; // Fila de tabla
 $table-row-hover-color: #555555; // Fila de tabla al pasar el cursor
 
 // Degradados para los botones
-$create-gradient: linear-gradient(to left, orange, red);
-$view-gradient: linear-gradient(to left, lightblue, blue);
-$delete-gradient: linear-gradient(to left, lightcoral, crimson);
-$update-gradient: linear-gradient(to left, lightgoldenrodyellow, goldenrod);
+$create-gradient: linear-gradient(to right, red, orange);
+$view-gradient: linear-gradient(to right, blue, lightblue);
+$delete-gradient: linear-gradient(to right, crimson, lightcoral);
+$update-gradient: linear-gradient(to right, goldenrod, lightgoldenrodyellow);
 
 // Aplicar estilos
 .header {
@@ -67,7 +67,7 @@ $update-gradient: linear-gradient(to left, lightgoldenrodyellow, goldenrod);
 }
 
 .btn-create:hover {
-  background: linear-gradient(to left, darkorange, darkred);
+  background: linear-gradient(to right, darkred, darkorange);
 }
 
 .btn-view {
@@ -77,7 +77,7 @@ $update-gradient: linear-gradient(to left, lightgoldenrodyellow, goldenrod);
 }
 
 .btn-view:hover {
-  background: linear-gradient(to left, deepskyblue, darkblue);
+  background: linear-gradient(to right, darkblue, deepskyblue);
 }
 
 .btn-delete {
@@ -87,7 +87,7 @@ $update-gradient: linear-gradient(to left, lightgoldenrodyellow, goldenrod);
 }
 
 .btn-delete:hover {
-  background: linear-gradient(to left, indianred, firebrick);
+  background: linear-gradient(to right, firebrick, indianred);
 }
 
 .btn-update {
@@ -97,5 +97,5 @@ $update-gradient: linear-gradient(to left, lightgoldenrodyellow, goldenrod);
 }
 
 .btn-update:hover {
-  background: linear-gradient(to left, khaki, goldenrod);
+  background: linear-gradient(to right, goldenrod, khaki);
 }

@@ -1,1 +1,126 @@
-<p>manage works!</p>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 *ngIf="mode === 1">visualizar</h3>
+          <h3 *ngIf="mode === 2">crear</h3>
+          <h3 *ngIf="mode === 3">actualizar</h3>
+        </div>
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                Id:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="suscripcion.id" disabled>
+              </div>
+            </div>
+            <form [formGroup]="theFormGroup">
+
+            <div class="row">
+              <div class="col-4">
+                Fecha Inicio:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="suscripcion.fecha_inicio"
+                 [disabled]="mode==1" formControlName="fecha_inicio">
+
+                 <br>
+                 <div
+                 *ngIf="getTheFormGroup.fecha_inicio.errors &&(getTheFormGroup.fecha_inicio.dirty|| getTheFormGroup.fecha_inicio.touched)">
+                <strong *ngIf="getTheFormGroup.fecha_inicio.errors.required" class="msnError">Requerido</strong>
+                <strong *ngIf="getTheFormGroup.fecha_inicio.errors.minlength||getTheFormGroup.fecha_inicio.errors.maxlength" class="msnError">invalido</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                Fecha Fin:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="suscripcion.fecha_fin"
+                 [disabled]="mode==1" formControlName="fecha_fin">
+
+                 <br>
+                 <div
+                 *ngIf="getTheFormGroup.fecha_fin.errors &&(getTheFormGroup.fecha_fin.dirty|| getTheFormGroup.fecha_fin.touched)">
+                <strong *ngIf="getTheFormGroup.fecha_fin.errors.required" class="msnError">Requerido</strong>
+                <strong *ngIf="getTheFormGroup.fecha_fin.errors.minlength||getTheFormGroup.fecha_fin.errors.maxlength" class="msnError">invalido</strong>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                  N° Beneficiarios:
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" [(ngModel)]="suscripcion.numero_beneficiaros"
+                   [disabled]="mode==1" formControlName="numero_beneficiaros">
+  
+                   <br>
+                   <div
+                   *ngIf="getTheFormGroup.numero_beneficiaros.errors &&(getTheFormGroup.numero_beneficiaros.dirty|| getTheFormGroup.numero_beneficiaros.touched)">
+                  <strong *ngIf="getTheFormGroup.numero_beneficiaros.errors.required" class="msnError">Requerido</strong>
+                  <strong *ngIf="getTheFormGroup.numero_beneficiaros.errors.minlength||getTheFormGroup.numero_beneficiaros.errors.maxlength" class="msnError">invalido</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-4">
+                  Cliente ID:
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" [(ngModel)]="suscripcion.cliente_id"
+                   [disabled]="mode==1" formControlName="cliente_id">
+  
+                   <br>
+                   <div
+                   *ngIf="getTheFormGroup.cliente_id.errors &&(getTheFormGroup.cliente_id.dirty|| getTheFormGroup.cliente_id.touched)">
+                  <strong *ngIf="getTheFormGroup.cliente_id.errors.required" class="msnError">Requerido</strong>
+                  <strong *ngIf="getTheFormGroup.cliente_id.errors.minlength||getTheFormGroup.cliente_id.errors.maxlength" class="msnError">invalido</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-4">
+                  Plan ID:
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" [(ngModel)]="suscripcion.plan_id"
+                   [disabled]="mode==1" formControlName="plan_id">
+  
+                   <br>
+                   <div
+                   *ngIf="getTheFormGroup.plan_id.errors &&(getTheFormGroup.plan_id.dirty|| getTheFormGroup.plan_id.touched)">
+                  <strong *ngIf="getTheFormGroup.plan_id.errors.required" class="msnError">Requerido</strong>
+                  <strong *ngIf="getTheFormGroup.plan_id.errors.minlength||getTheFormGroup.plan_id.errors.maxlength" class="msnError">invalido</strong>
+                  </div>
+                </div>
+              </div>
+
+          </form>
+
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-8">
+                <button *ngIf="mode==2" (click)="create()" type="button" class="btn btn-create btn-block">crear</button>
+                <button *ngIf="mode==3" (click)="update()" type="button" class="btn btn-update btn-block">actualizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

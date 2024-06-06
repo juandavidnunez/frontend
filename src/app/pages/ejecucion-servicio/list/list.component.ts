@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EjecucionServicio } from 'src/app/models/ejecucion-servicio.model';
 import { EjecucionServicioService } from 'src/app/services/ejecucion-servicio.service';
 import Swal from 'sweetalert2';
@@ -9,10 +10,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  ejecucion_servicios: EjecucionServicio[];
+  ejecucion_servicio: EjecucionServicio[];
 
-  constructor(private service: EjecucionServicioService) { 
-    this.ejecucion_servicios = [];
+  constructor(private service: EjecucionServicioService, private router:Router) { 
+    this.ejecucion_servicio = [];
   }
 
   ngOnInit(): void {
@@ -21,8 +22,8 @@ export class ListComponent implements OnInit {
 
   list() {
     this.service.list().subscribe(data => {
-      this.ejecucion_servicios = data;
-      console.log(JSON.stringify(this.ejecucion_servicios));
+      this.ejecucion_servicio = data;
+      console.log(JSON.stringify(this.ejecucion_servicio));
     });
   }
   deleteEj_Servicio(id: number): void {
@@ -52,16 +53,20 @@ export class ListComponent implements OnInit {
         });
       }
     });
-    console.log('Eliminar Ejecución de ejecucion servicio con id:', id);
+    console.log('Eliminar de ejecucion servicio con id:', id);
   }
 
   updateEj_Servicio(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar Ejecución de ejecucion servicio con id:', id);
+    this.router.navigate(["ejecucion_servicio/update/"+id])
+
   }
 
   createEj_Servicio(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear una nueva Ejecución de ejecucion servicio');
+    this.router.navigate(["ejecucion_servicio/create"])
+
+  }
+  viewEj_Servicio(id: number): void {
+    this.router.navigate(["ejecucion_servicio/view/"+id])
+
   }
 }

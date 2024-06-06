@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Planes } from 'src/app/models/planes.model';
 import { PlanesService } from 'src/app/services/planes.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   planes: Planes[];
 
-  constructor(private service: PlanesService) { 
+  constructor(private service: PlanesService, private router:Router) { 
     this.planes = [];
   }
 
@@ -55,13 +56,18 @@ export class ListComponent implements OnInit {
     console.log('Eliminar Planes con id:', id);
   }
 
+  viewPlanes(id:number){
+    this.router.navigate(["planes/view/"+id])
+    console.log('Visualizar a ', id)
+  }
+
   updatePlanes(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar Planes con id:', id);
+    this.router.navigate(["planes/update/"+id])
+    console.log('Actualizar servicio con id:', id);
   }
 
   createPlanes(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear una nueva Planes');
+    this.router.navigate(["planes/create/"])
+    console.log('Crear un nuevo servicio');
   }
 }

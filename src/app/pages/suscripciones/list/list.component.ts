@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Suscripciones } from 'src/app/models/suscripciones.model';
 import { SuscripcionesService } from 'src/app/services/suscripciones.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   suscripciones: Suscripciones[];
 
-  constructor(private service: SuscripcionesService) { 
+  constructor(private service: SuscripcionesService, private router:Router) { 
     this.suscripciones = [];
   }
 
@@ -55,13 +56,18 @@ export class ListComponent implements OnInit {
     console.log('Eliminar suscripciones con id:', id);
   }
 
+  viewSuscripciones(id:number){
+    this.router.navigate(["suscripciones/view/"+id])
+    console.log('Visualizar a ', id)
+  }
+
   updateSuscripciones(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar suscripciones con id:', id);
+    this.router.navigate(["suscripciones/update/"+id])
+    console.log('Actualizar servicio con id:', id);
   }
 
   createSuscripciones(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear una nueva suscripciones');
+    this.router.navigate(["suscripciones/create/"])
+    console.log('Crear un nuevo servicio');
   }
 }

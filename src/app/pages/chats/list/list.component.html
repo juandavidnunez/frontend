@@ -31,6 +31,9 @@
                 <td>{{actual.id}}</td>
                 <td>{{actual.Ej_servicio_id}}</td>
                 <td>
+                  <button class="btn btn-view btn-sm" (click)="viewChats(actual.id)">
+                    <i class="fas fa-eye"></i>
+                  </button>
                   <button class="btn btn-danger btn-sm" (click)="deleteChats(actual.id)">
                     <i class="fas fa-trash-alt"></i>
                   </button>

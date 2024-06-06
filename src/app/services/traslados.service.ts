@@ -8,14 +8,32 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TrasladosService {
-
-  constructor(private http: HttpClient) {   }
+  constructor(private http: HttpClient) {}
   list(): Observable<Traslados[]> {
-    return this.http.get<{ data: Traslados[] }>(`${environment.url_ms_funeraria_p3}/traslados`) .pipe(
-    map(response => response.data)
-  );
+    return this.http
+      .get<{ data: Traslados[] }>(
+        `${environment.url_ms_funeraria_p3}/traslados`
+      )
+      .pipe(map((response) => response.data));
   }
-  delete(id:number){
-    return this.http.delete<Traslados>(`${environment.url_ms_funeraria_p3}/traslados/${id}` );
+  view(id: number): Observable<Traslados> {
+    return this.http.get<Traslados>(
+      `${environment.url_ms_funeraria_p3}/traslados/${id}`
+    );
+  }
+  create(newTraslado: Traslados): Observable<Traslados> {
+    return this.http.post<Traslados>(
+      `${environment.url_ms_funeraria_p3}/traslados`,newTraslado
+    );
+  }
+  update(theTraslado: Traslados): Observable<Traslados> {
+    return this.http.put<Traslados>(
+      `${environment.url_ms_funeraria_p3}/traslados/${theTraslado.id}`,theTraslado
+    );
+  }
+  delete(id: number) {
+    return this.http.delete<Traslados>(
+      `${environment.url_ms_funeraria_p3}/traslados/${id}`
+    );
   }
 }

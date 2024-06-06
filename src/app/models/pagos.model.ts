@@ -3,4 +3,5 @@ export class Pagos {
     fecha_pago:Date
     monto:number
     metodo_pago:string
+    suscripcion_id?:number
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chats } from 'src/app/models/chats.model';
 import { ChatsService } from 'src/app/services/chats.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   chats: Chats[];
 
-  constructor(private service: ChatsService) { 
+  constructor(private service: ChatsService, private router:Router) { 
     this.chats = [];
   }
 
@@ -55,13 +56,18 @@ export class ListComponent implements OnInit {
     console.log('Eliminar chat con id:', id);
   }
 
+  viewChats(id:number){
+    this.router.navigate(["chats/view/"+id])
+    console.log('Visualizar a ', id)
+  }
+
   updateChats(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar chat con id:', id);
+    this.router.navigate(["chats/update/"+id])
+    console.log('Actualizar servicio con id:', id);
   }
 
   createChats(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear un nuevo chat');
+    this.router.navigate(["chats/create/"])
+    console.log('Crear un nuevo servicio');
   }
 }

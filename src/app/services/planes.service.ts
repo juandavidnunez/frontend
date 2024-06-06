@@ -15,6 +15,21 @@ export class PlanesService {
     map(response => response.data)
   );
   }
+  view(id: number): Observable<Planes> {
+    return this.http.get<Planes>(
+      `${environment.url_ms_funeraria_p3}/planes/${id}`
+    );
+  }
+  create(newPlan: Planes): Observable<Planes> {
+    return this.http.post<Planes>(
+      `${environment.url_ms_funeraria_p3}/planes`,newPlan
+    );
+  }
+  update(thePlan: Planes): Observable<Planes> {
+    return this.http.put<Planes>(
+      `${environment.url_ms_funeraria_p3}/planes/${thePlan.id}`,thePlan
+    );
+  }
   delete(id:number){
     return this.http.delete<Planes>(`${environment.url_ms_funeraria_p3}/planes/${id}` );
   }

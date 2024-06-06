@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Comentarios } from 'src/app/models/comentarios.model';
 import { ComentariosService } from 'src/app/services/comentarios.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   comentarios: Comentarios[];
 
-  constructor(private service: ComentariosService) { 
+  constructor(private service: ComentariosService, private router:Router) { 
     this.comentarios = [];
   }
 
@@ -55,13 +56,18 @@ export class ListComponent implements OnInit {
     console.log('Eliminar comentario con id:', id);
   }
 
+  viewComentarios(id:number){
+    this.router.navigate(["comentarios/view/"+id])
+    console.log('Visualizar a ', id)
+  }
+
   updateComentarios(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar comentario con id:', id);
+    this.router.navigate(["comentarios/update/"+id])
+    console.log('Actualizar servicio con id:', id);
   }
 
   createComentarios(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear un nuevo comentario');
+    this.router.navigate(["comentarios/create/"])
+    console.log('Crear un nuevo servicio');
   }
 }

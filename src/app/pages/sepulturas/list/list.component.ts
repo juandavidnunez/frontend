@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Sepulturas } from 'src/app/models/sepulturas.model';
 import { SepulturasService } from 'src/app/services/sepulturas.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   sepulturas: Sepulturas[];
 
-  constructor(private service: SepulturasService) { 
+  constructor(private service: SepulturasService, private router:Router) { 
     this.sepulturas = [];
   }
 
@@ -55,13 +56,18 @@ export class ListComponent implements OnInit {
     console.log('Eliminar sepultura con id:', id);
   }
 
+  viewSepulturas(id:number){
+    this.router.navigate(["sepulturas/view/"+id])
+    console.log('Visualizar a ', id)
+  }
+
   updateSepulturas(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar sepultura con id:', id);
+    this.router.navigate(["sepulturas/update/"+id])
+    console.log('Actualizar servicio con id:', id);
   }
 
   createSepulturas(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear una nueva sepultura');
+    this.router.navigate(["sepulturas/create/"])
+    console.log('Crear un nuevo servicio');
   }
 }

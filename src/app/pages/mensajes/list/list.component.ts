@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Mensajes } from 'src/app/models/mensajes.model';
 import { MensajesService } from 'src/app/services/mensajes.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   mensajes: Mensajes[];
 
-  constructor(private service: MensajesService) { 
+  constructor(private service: MensajesService, private router:Router) { 
     this.mensajes = [];
   }
 
@@ -55,13 +56,18 @@ export class ListComponent implements OnInit {
     console.log('Eliminar mensajes con id:', id);
   }
 
+  viewMensajes(id:number){
+    this.router.navigate(["mensajes/view/"+id])
+    console.log('Visualizar a ', id)
+  }
+
   updateMensajes(id: number): void {
-    // Implementar la lógica para actualizar un departamento
-    console.log('Actualizar mensajes con id:', id);
+    this.router.navigate(["mensajes/update/"+id])
+    console.log('Actualizar servicio con id:', id);
   }
 
   createMensajes(): void {
-    // Implementar la lógica para crear un nuevo departamento
-    console.log('Crear una nueva mensajes');
+    this.router.navigate(["mensajes/create/"])
+    console.log('Crear un nuevo servicio');
   }
 }

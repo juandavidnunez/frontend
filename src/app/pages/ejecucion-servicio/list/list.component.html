@@ -29,12 +29,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let actual of ejecucion_servicios">
+              <tr *ngFor="let actual of ejecucion_servicio">
                 <td>{{actual.id}}</td>
                 <td>{{actual.descripcion}}</td>
                 <td>{{actual.servicio_id}}</td>
                 <td>{{actual.cliente_id}}</td>
                 <td>
+                  <button class="btn btn-view btn-sm" (click)="viewEj_Servicio(actual.id)">
+                    <i class="fas fa-eye"></i>
+                  </button>
                   <button class="btn btn-danger btn-sm" (click)="deleteEj_Servicio(actual.id)">
                     <i class="fas fa-trash-alt"></i>
                   </button>

@@ -1,1 +1,109 @@
-<p>manage works!</p>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 *ngIf="mode === 1">visualizar</h3>
+          <h3 *ngIf="mode === 2">crear</h3>
+          <h3 *ngIf="mode === 3">actualizar</h3>
+        </div>
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                Id:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="mensaje.id" disabled>
+              </div>
+            </div>
+            <form [formGroup]="theFormGroup">
+
+            <div class="row">
+              <div class="col-4">
+                Contenido:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="mensaje.contenido"
+                 [disabled]="mode==1" formControlName="contenido">
+
+                 <br>
+                 <div
+                 *ngIf="getTheFormGroup.contenido.errors &&(getTheFormGroup.contenido.dirty|| getTheFormGroup.contenido.touched)">
+                <strong *ngIf="getTheFormGroup.contenido.errors.required" class="msnError">Requerido</strong>
+                <strong *ngIf="getTheFormGroup.contenido.errors.minlength||getTheFormGroup.contenido.errors.maxlength" class="msnError">invalido</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                Fecha Mensaje:
+              </div>
+              <div class="col-8">
+                <input type="text" class="form-control" [(ngModel)]="mensaje.fecha_mensaje"
+                 [disabled]="mode==1" formControlName="fecha_mensaje">
+
+                 <br>
+                 <div
+                 *ngIf="getTheFormGroup.fecha_mensaje.errors &&(getTheFormGroup.fecha_mensaje.dirty|| getTheFormGroup.fecha_mensaje.touched)">
+                <strong *ngIf="getTheFormGroup.fecha_mensaje.errors.required" class="msnError">Requerido</strong>
+                <strong *ngIf="getTheFormGroup.fecha_mensaje.errors.minlength||getTheFormGroup.fecha_mensaje.errors.maxlength" class="msnError">invalido</strong>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    Chat ID:
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" [(ngModel)]="mensaje.chat_id"
+                    [disabled]="mode==1" formControlName="chat_id">
+
+                    <br>
+                    <div
+                    *ngIf="getTheFormGroup.chat_id.errors &&(getTheFormGroup.chat_id.dirty|| getTheFormGroup.chat_id.touched)">
+                    <strong *ngIf="getTheFormGroup.chat_id.errors.required" class="msnError">Requerido</strong>
+                    <strong *ngIf="getTheFormGroup.chat_id.errors.minlength||getTheFormGroup.chat_id.errors.maxlength" class="msnError">invalido</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    Chat ID:
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" [(ngModel)]="mensaje.user_id"
+                    [disabled]="mode==1" formControlName="user_id">
+
+                    <br>
+                    <div
+                    *ngIf="getTheFormGroup.user_id.errors &&(getTheFormGroup.user_id.dirty|| getTheFormGroup.user_id.touched)">
+                    <strong *ngIf="getTheFormGroup.user_id.errors.required" class="msnError">Requerido</strong>
+                    <strong *ngIf="getTheFormGroup.user_id.errors.minlength||getTheFormGroup.user_id.errors.maxlength" class="msnError">invalido</strong>
+                    </div>
+                </div>
+            </div>
+
+          </form>
+
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-8">
+                <button *ngIf="mode==2" (click)="create()" type="button" class="btn btn-create btn-block">crear</button>
+                <button *ngIf="mode==3" (click)="update()" type="button" class="btn btn-update btn-block">actualizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

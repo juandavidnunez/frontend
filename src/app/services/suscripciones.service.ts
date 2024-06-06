@@ -15,6 +15,21 @@ export class SuscripcionesService {
     map(response => response.data)
   );
   }
+  view(id: number): Observable<Suscripciones> {
+    return this.http.get<Suscripciones>(
+      `${environment.url_ms_funeraria_p3}/suscripciones/${id}`
+    );
+  }
+  create(newSuscripcion: Suscripciones): Observable<Suscripciones> {
+    return this.http.post<Suscripciones>(
+      `${environment.url_ms_funeraria_p3}/suscripciones`,newSuscripcion
+    );
+  }
+  update(theSuscripcion: Suscripciones): Observable<Suscripciones> {
+    return this.http.put<Suscripciones>(
+      `${environment.url_ms_funeraria_p3}/suscripciones/${theSuscripcion.id}`,theSuscripcion
+    );
+  }
   delete(id:number){
     return this.http.delete<Suscripciones>(`${environment.url_ms_funeraria_p3}/suscripciones/${id}` );
   }
