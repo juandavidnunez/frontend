@@ -13,7 +13,7 @@
             <div class="row mb-3">
               <div class="col-4">Id:</div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="ciudad.id" disabled>
+                <input type="text" class="form-control" [(ngModel)]="sala.id" disabled>
               </div>
             </div>
             <form [formGroup]="theFormGroup">
@@ -23,7 +23,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    [(ngModel)]="ciudad.nombre"
+                    [(ngModel)]="sala.nombre"
                     [disabled]="mode == 1"
                     formControlName="nombre"
                   >
@@ -33,20 +33,50 @@
                   </div>
                 </div>
               </div>
-
               <div class="row mb-3">
-                <div class="col-4">departamento_id:</div>
+                <div class="col-4">Capacidad:</div>
                 <div class="col-8">
                   <input
                     type="number"
                     class="form-control"
-                    [(ngModel)]="ciudad.departamento_id"
+                    [(ngModel)]="sala.capacidad"
                     [disabled]="mode == 1"
-                    formControlName="departamento_id"
+                    formControlName="capacidad"
                   >
-                  <div *ngIf="formControls.departamento_id.errors && (formControls.departamento_id.dirty || formControls.departamento_id.touched)" class="text-danger">
-                    <strong *ngIf="formControls.departamento_id.errors.required">Requerido</strong>
-                    <strong *ngIf="formControls.departamento_id.errors.min || formControls.departamento_id.errors.max">Inválido</strong>
+                  <div *ngIf="formControls.capacidad.errors && (formControls.capacidad.dirty || formControls.capacidad.touched)" class="text-danger">
+                    <strong *ngIf="formControls.capacidad.errors.required">Requerido</strong>
+                    <strong *ngIf="formControls.capacidad.errors.min || formControls.capacidad.errors.max">Inválido</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">Disponibilidad:</div>
+                <div class="col-8">
+                  <input
+                    type="checkbox"
+                    class="form-control"
+                    [(ngModel)]="sala.disponibilidad"
+                    [disabled]="mode == 1"
+                    formControlName="disponibilidad"
+                  >
+                  <div *ngIf="formControls.disponibilidad.errors && (formControls.disponibilidad.dirty || formControls.disponibilidad.touched)" class="text-danger">
+                    <strong *ngIf="formControls.disponibilidad.errors.required">Requerido</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">Sede ID:</div>
+                <div class="col-8">
+                  <input
+                    type="number"
+                    class="form-control"
+                    [(ngModel)]="sala.sede_id"
+                    [disabled]="mode == 1"
+                    formControlName="sede_id"
+                  >
+                  <div *ngIf="formControls.sede_id.errors && (formControls.sede_id.dirty || formControls.sede_id.touched)" class="text-danger">
+                    <strong *ngIf="formControls.sede_id.errors.required">Requerido</strong>
+                    <strong *ngIf="formControls.sede_id.errors.min || formControls.sede_id.errors.max">Inválido</strong>
                   </div>
                 </div>
               </div>

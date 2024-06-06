@@ -24,7 +24,7 @@
                     type="text"
                     class="form-control"
                     [(ngModel)]="sede.nombre"
-                    [disabled]="mode === 1"
+                    [disabled]="mode == 1"
                     formControlName="nombre"
                   >
                   <div *ngIf="formControls.nombre.errors && (formControls.nombre.dirty || formControls.nombre.touched)" class="text-danger">
@@ -35,13 +35,13 @@
               </div>
 
               <div class="row mb-3">
-                <div class="col-4">Dirección:</div>
+                <div class="col-4">direccion:</div>
                 <div class="col-8">
                   <input
                     type="text"
                     class="form-control"
                     [(ngModel)]="sede.direccion"
-                    [disabled]="mode === 1"
+                    [disabled]="mode == 1"
                     formControlName="direccion"
                   >
                   <div *ngIf="formControls.direccion.errors && (formControls.direccion.dirty || formControls.direccion.touched)" class="text-danger">
@@ -51,48 +51,36 @@
                 </div>
               </div>
 
+
+
+
               <div class="row mb-3">
-                <div class="col-4">Correo Electrónico:</div>
+                <div class="col-4">correo_electronico:</div>
                 <div class="col-8">
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
                     [(ngModel)]="sede.correo_electronico"
-                    [disabled]="mode === 1"
+                    [disabled]="mode == 1"
                     formControlName="correo_electronico"
                   >
                   <div *ngIf="formControls.correo_electronico.errors && (formControls.correo_electronico.dirty || formControls.correo_electronico.touched)" class="text-danger">
                     <strong *ngIf="formControls.correo_electronico.errors.required">Requerido</strong>
-                    <strong *ngIf="formControls.correo_electronico.errors.email">Inválido</strong>
+                    <strong *ngIf="formControls.correo_electronico.errors.minlength || formControls.correo_electronico.errors.maxlength">Inválido</strong>
                   </div>
                 </div>
               </div>
 
-              <div class="row mb-3">
-                <div class="col-4">Ciudad ID:</div>
-                <div class="col-8">
-                  <input
-                    type="text"
-                    class="form-control"
-                    [(ngModel)]="sede.ciudad_id"
-                    [disabled]="mode === 1"
-                    formControlName="ciudad_id"
-                  >
-                  <div *ngIf="formControls.ciudad_id.errors && (formControls.ciudad_id.dirty || formControls.ciudad_id.touched)" class="text-danger">
-                    <strong *ngIf="formControls.ciudad_id.errors.required">Requerido</strong>
-                    <strong *ngIf="formControls.ciudad_id.errors.min || formControls.ciudad_id.errors.max">Inválido</strong>
-                  </div>
-                </div>
-              </div>
+
 
               <div class="row mb-3">
-                <div class="col-4">Teléfono:</div>
+                <div class="col-4">telefono:</div>
                 <div class="col-8">
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     [(ngModel)]="sede.telefono"
-                    [disabled]="mode === 1"
+                    [disabled]="mode == 1"
                     formControlName="telefono"
                   >
                   <div *ngIf="formControls.telefono.errors && (formControls.telefono.dirty || formControls.telefono.touched)" class="text-danger">
@@ -101,12 +89,29 @@
                   </div>
                 </div>
               </div>
+
+              <div class="row mb-3">
+                <div class="col-4">ciudad_id:</div>
+                <div class="col-8">
+                  <input
+                    type="number"
+                    class="form-control"
+                    [(ngModel)]="sede.ciudad_id"
+                    [disabled]="mode == 1"
+                    formControlName="ciudad_id"
+                  >
+                  <div *ngIf="formControls.ciudad_id.errors && (formControls.ciudad_id.dirty || formControls.ciudad_id.touched)" class="text-danger">
+                    <strong *ngIf="formControls.ciudad_id.errors.required">Requerido</strong>
+                    <strong *ngIf="formControls.ciudad_id.errors.min || formControls.ciudad_id.errors.max">Inválido</strong>
+                  </div>
+                </div>
+              </div>
             </form>
             <div class="row">
               <div class="col-4"></div>
               <div class="col-8">
-                <button *ngIf="mode === 2" (click)="create()" type="button" class="btn btn-create btn-block">Crear</button>
-                <button *ngIf="mode === 3" (click)="update()" type="button" class="btn btn-update btn-block">Actualizar</button>
+                <button *ngIf="mode == 2" (click)="create()" type="button" class="btn btn-create btn-block">Crear</button>
+                <button *ngIf="mode == 3" (click)="update()" type="button" class="btn btn-update btn-block">Actualizar</button>
               </div>
             </div>
           </div>

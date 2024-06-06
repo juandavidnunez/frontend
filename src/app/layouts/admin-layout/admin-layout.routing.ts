@@ -56,5 +56,11 @@ export const AdminLayoutRoutes: Routes = [
     },
     {path:"sede",
     loadChildren: () => import('src/app/pages/sede/sede.module').then(m => m.SedeModule)
-    }
+    },
+    {path:"sala",
+    loadChildren: () => import('src/app/pages/sala/sala.module').then(m => m.SalaModule)
+    },
+    {path:"feretro",
+        loadChildren: () => import('src/app/pages/feretro/feretro.module').then(m => m.FeretroModule)
+        }
 ];
