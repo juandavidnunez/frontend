@@ -22,9 +22,11 @@ export class AdministradorService {
     return this.http.post<Administrador>(`${environment.url_ms_funeraria_p3}/administradores` ,newAdministrador);
    }
    update(TheAdministrador: Administrador):Observable<Administrador>{
+
     return this.http.put<Administrador>(`${environment.url_ms_funeraria_p3}/administradores/${TheAdministrador._id}`,TheAdministrador );
    }
   delete(_id:string){
+
     return this.http.delete<Administrador>(`${environment.url_ms_funeraria_p3}/administradores/${_id}` );
   }
 }

@@ -20,6 +20,12 @@ export const AdminLayoutRoutes: Routes = [
     {path:"departamentos",
         canActivate:[AuthGuard],
     loadChildren: () => import('src/app/pages/departamentos/departamentos.module').then(m => m.DepartamentosModule)
+    },{path:"cliente",
+        canActivate:[AuthGuard],
+    loadChildren: () => import('src/app/pages/cliente/cliente.module').then(m => m.ClienteModule)
+    },{path:"conductor",
+        canActivate:[AuthGuard],
+    loadChildren: () => import('src/app/pages/conductor/conductor.module').then(m => m.ConductorModule)
     },
     {path:"servicios",
         canActivate:[AuthGuard],

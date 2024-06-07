@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Administrador } from 'src/app/models/administrador.model';
-import { AdministradorService } from 'src/app/services/administrador.service';
+import { Cliente } from 'src/app/models/cliente.model';
+import { ClienteService } from 'src/app/services/cliente.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,10 +11,10 @@ import Swal from 'sweetalert2';
 })
 export class ListComponent implements OnInit {
 
-  administrador: Administrador[];
+  cliente: Cliente[];
 
-  constructor(private service: AdministradorService,private router:Router) { 
-    this.administrador = [];
+  constructor(private service: ClienteService,private router:Router) { 
+    this.cliente = [];
   }
 
   ngOnInit(): void {
@@ -23,15 +23,15 @@ export class ListComponent implements OnInit {
 
   list() {
     this.service.list().subscribe(data => {
-      this.administrador = data;
-      console.log(JSON.stringify(this.administrador));
+      this.cliente = data;
+      console.log(JSON.stringify(this.cliente));
 
     });
   }
   deleteDepartment(_id: string): void {
     Swal.fire({
-      title: 'Eliminar Administrador',
-      text: '¿Está seguro que quiere eliminar este Administrador?',
+      title: 'Eliminar cliente',
+      text: '¿Está seguro que quiere eliminar este cliente?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#232323', 
@@ -45,7 +45,7 @@ export class ListComponent implements OnInit {
         this.service.delete(_id).subscribe(data => {
           Swal.fire({
             title: 'Eliminado!',
-            text: 'El Administrador ha sido eliminado correctamente.',
+            text: 'El cliente ha sido eliminado correctamente.',
             icon: 'success',
             confirmButtonColor: '#232323', 
             background: '#1c1c1c', 
@@ -56,7 +56,7 @@ export class ListComponent implements OnInit {
       }
     });
 
-    console.log('Eliminar Administrador con _id:', _id);
+    console.log('Eliminar cliente con _id:', _id);
   }
 
   updateDepartment(_id: string): void {

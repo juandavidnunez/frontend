@@ -18,11 +18,9 @@
                 Id:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="administrador._id" disabled>
+                <input type="text" class="form-control" [(ngModel)]="cliente._id" disabled>
               </div>
             </div>
-
-            
             <form [formGroup]="theFormGroup">
 
             <div class="row">
@@ -30,7 +28,7 @@
                 name:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="administrador.name"
+                <input type="text" class="form-control" [(ngModel)]="cliente.name"
                  [disabled]="mode==1" formControlName="name">
 
                  <br>
@@ -49,7 +47,7 @@
                   email:
                 </div>
                 <div class="col-8">
-                  <input type="text" class="form-control" [(ngModel)]="administrador.email"
+                  <input type="text" class="form-control" [(ngModel)]="cliente.email"
                    [disabled]="mode==1" formControlName="email">
   
                    <br>
@@ -68,7 +66,7 @@
                   password:
                 </div>
                 <div class="col-8">
-                  <input type="text" class="form-control" [(ngModel)]="administrador.password"
+                  <input type="text" class="form-control" [(ngModel)]="cliente.password"
                    [disabled]="mode==1" formControlName="password">
   
                    <br>

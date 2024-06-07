@@ -75,7 +75,7 @@ export class ManageComponent implements OnInit {
     }
     this.service.create(this.sede).subscribe(() => {
       Swal.fire("Creación Exitosa", "Se ha creado un nuevo registro", "success");
-      this.router.navigate(["sedes/list"]);
+      this.router.navigate(["sede/list"]);
     });
   }
 
@@ -87,7 +87,7 @@ export class ManageComponent implements OnInit {
     }
     this.service.update(this.sede).subscribe(() => {
       Swal.fire("Actualización Exitosa", "Se ha actualizado el registro", "success");
-      this.router.navigate(["sedes/list"]);
+      this.router.navigate(["sede/list"]);
     });
   }
 }

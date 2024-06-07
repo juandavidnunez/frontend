@@ -15,25 +15,25 @@
     <div class="col">
       <div class="card shadow">
         <div class="card-header bg-transparent">
-          <h3 class="mb-0">administrador</h3>
+          <h3 class="mb-0">conductor</h3>
         </div>
         <div class="card-body">
           <table class="table">
             <thead>
-              <tr>
-                <th class="col-1">ID</th>
-                <th class="col-3">Name</th>
-                <th class="col-1">Role</th>
-                <th class="col-3">Opciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let actual of administrador">
-                <td>{{actual._id}}</td>
-                <td>{{actual.name}}</td>
-                <td *ngIf="actual.role && actual.role.name">{{actual.role.name}}</td>
-                <td *ngIf="!actual.role || !actual.role.name"><span>No role</span></td>
-                <td>
+                <tr>
+                    <th class="col-1">ID</th>
+                    <th class="col-3">Name</th>
+                    <th class="col-1">Role</th>
+                    <th class="col-3">Opciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let actual of conductor">
+                    <td>{{actual._id}}</td>
+                    <td>{{actual.name}}</td>
+                    <td *ngIf="actual.role && actual.role.name">{{actual.role.name}}</td>
+                    <td *ngIf="!actual.role || !actual.role.name"><span>No role</span></td>
+                    <td>
                   <button class="btn btn-view btn-sm" (click)="viewDepartment(actual._id)">
                     <i class="fas fa-eye"></i>
                   </button>

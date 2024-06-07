@@ -46,14 +46,13 @@
                 Estado Servicio:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="servicio.estado_servicio"
+                <input type="checkbox" class="form-control" [(ngModel)]="servicio.estado_servicio"
                  [disabled]="mode==1" formControlName="estado_servicio">
 
                  <br>
                  <div
                  *ngIf="getTheFormGroup.estado_servicio.errors &&(getTheFormGroup.estado_servicio.dirty|| getTheFormGroup.descripcion.touched)">
                 <strong *ngIf="getTheFormGroup.estado_servicio.errors.required" class="msnError">Requerido</strong>
-                <strong *ngIf="getTheFormGroup.estado_servicio.errors.minlength||getTheFormGroup.estado_servicio.errors.maxlength" class="msnError">invalido</strong>
 
 
                 </div>
