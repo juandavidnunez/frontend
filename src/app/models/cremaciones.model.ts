@@ -1,6 +1,8 @@
+import { Servicios } from "./servicios.model"
+
 export class Cremaciones {
     id?:number
     ubicacion:string
     fecha_hora:Date
-    servicio_id?:number
+    servicio?:Servicios
 }

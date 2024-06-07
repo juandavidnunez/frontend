@@ -13,85 +13,82 @@
         </div>
         <div class="card-body">
           <div class="container">
-            <div class="row">
-              <div class="col-4">
-                Id:
-              </div>
-              <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="traslado.id" disabled>
-              </div>
-            </div>
+            
             <form [formGroup]="theFormGroup">
-
-            <div class="row">
-              <div class="col-4">
-                Origen:
-              </div>
-              <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="traslado.origen"
-                 [disabled]="mode==1" formControlName="origen">
-
-                 <br>
-                 <div
-                 *ngIf="getTheFormGroup.origen.errors &&(getTheFormGroup.origen.dirty|| getTheFormGroup.origen.touched)">
-                <strong *ngIf="getTheFormGroup.origen.errors.required" class="msnError">Requerido</strong>
-                <strong *ngIf="getTheFormGroup.origen.errors.minlength||getTheFormGroup.origen.errors.maxlength" class="msnError">invalido</strong>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-4">
-                Destino:
-              </div>
-              <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="traslado.destino"
-                 [disabled]="mode==1" formControlName="destino">
-
-                 <br>
-                 <div
-                 *ngIf="getTheFormGroup.destino.errors &&(getTheFormGroup.destino.dirty|| getTheFormGroup.destino.touched)">
-                <strong *ngIf="getTheFormGroup.destino.errors.required" class="msnError">Requerido</strong>
-                <strong *ngIf="getTheFormGroup.destino.errors.minlength||getTheFormGroup.destino.errors.maxlength" class="msnError">invalido</strong>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
+              <div class="row">
                 <div class="col-4">
-                  Fecha:
+                  Id:
                 </div>
                 <div class="col-8">
-                  <input type="text" class="form-control" [(ngModel)]="traslado.fecha"
-                   [disabled]="mode==1" formControlName="fecha">
-  
-                   <br>
-                   <div
-                   *ngIf="getTheFormGroup.fecha.errors &&(getTheFormGroup.fecha.dirty|| getTheFormGroup.fecha.touched)">
-                  <strong *ngIf="getTheFormGroup.fecha.errors.required" class="msnError">Requerido</strong>
-                  <strong *ngIf="getTheFormGroup.fecha.errors.minlength||getTheFormGroup.fecha.errors.maxlength" class="msnError">invalido</strong>
+                  <input type="number" class="form-control" [(ngModel)]="traslado.id" disabled>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  Origen:
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" [(ngModel)]="traslado.origen"
+                  [disabled]="mode==1" formControlName="origen">
+
+                  <br>
+                  <div
+                  *ngIf="getTheFormGroup.origen.errors &&(getTheFormGroup.origen.dirty|| getTheFormGroup.origen.touched)">
+                  <strong *ngIf="getTheFormGroup.origen.errors.required" class="msnError">Requerido</strong>
+                  <strong *ngIf="getTheFormGroup.origen.errors.minlength||getTheFormGroup.origen.errors.maxlength" class="msnError">invalido</strong>
                   </div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-4">
-                  Servicio ID:
+                  Destino:
                 </div>
                 <div class="col-8">
-                  <input type="text" class="form-control" [(ngModel)]="traslado.servicio_id"
-                   [disabled]="mode==1" formControlName="servicio_id">
-  
-                   <br>
-                   <div
-                   *ngIf="getTheFormGroup.servicio_id.errors &&(getTheFormGroup.servicio_id.dirty|| getTheFormGroup.servicio_id.touched)">
-                  <strong *ngIf="getTheFormGroup.servicio_id.errors.required" class="msnError">Requerido</strong>
-                  <strong *ngIf="getTheFormGroup.servicio_id.errors.minlength||getTheFormGroup.servicio_id.errors.maxlength" class="msnError">invalido</strong>
+                  <input type="text" class="form-control" [(ngModel)]="traslado.destino"
+                  [disabled]="mode==1" formControlName="destino">
+
+                  <br>
+                  <div
+                  *ngIf="getTheFormGroup.destino.errors &&(getTheFormGroup.destino.dirty|| getTheFormGroup.destino.touched)">
+                  <strong *ngIf="getTheFormGroup.destino.errors.required" class="msnError">Requerido</strong>
+                  <strong *ngIf="getTheFormGroup.destino.errors.minlength||getTheFormGroup.destino.errors.maxlength" class="msnError">invalido</strong>
+
                   </div>
                 </div>
               </div>
-          </form>
+
+              <div class="row">
+                  <div class="col-4">
+                    Fecha:
+                  </div>
+                  <div class="col-8">
+                    <input type="date" class="form-control" [(ngModel)]="traslado.fecha"
+                    [disabled]="mode==1" formControlName="fecha">
+    
+                    <br>
+                    <div
+                    *ngIf="getTheFormGroup.fecha.errors &&(getTheFormGroup.fecha.dirty|| getTheFormGroup.fecha.touched)">
+                    <strong *ngIf="getTheFormGroup.fecha.errors.required" class="msnError">Requerido</strong>
+                    <strong *ngIf="getTheFormGroup.fecha.errors.minlength||getTheFormGroup.fecha.errors.maxlength" class="msnError">invalido</strong>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="row">
+                <div class="col-4">
+                  Servicio:
+                </div>
+                <div class="col-8">
+                  <select class="form-control" formControlName="servicio_id" [(ngModel)]="traslado.servicio.id">
+                    <option *ngFor="let option of servicios" [value]="option.id">Descripción: {{option.descripcion}}</option>
+                  </select>
+
+                    <br>
+                  
+                </div>
+              </div>
+            </form>
 
             <div class="row">
               <div class="col-4"></div>

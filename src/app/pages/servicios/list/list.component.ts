@@ -67,7 +67,7 @@ export class ListComponent implements OnInit {
   }
 
   createServicio(): void {
-    this.router.navigate(["servicios/create/"])
+    this.router.navigate(["servicios/create"])
     console.log('Crear un nuevo servicio');
   }
 }

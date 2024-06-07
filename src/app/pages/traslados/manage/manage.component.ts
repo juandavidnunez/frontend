@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Servicios } from 'src/app/models/servicios.model';
 import { Traslados } from 'src/app/models/traslados.model';
+import { ServiciosService } from 'src/app/services/servicios.service';
 import { TrasladosService } from 'src/app/services/traslados.service';
 import Swal from 'sweetalert2';
 
@@ -15,14 +17,32 @@ export class ManageComponent implements OnInit {
   traslado: Traslados;
   theFormGroup: FormGroup;
   trySend: boolean;
+  servicios: Servicios[];
 
-  constructor(private activateRoute: ActivatedRoute, private service: TrasladosService, private router: Router, private theFormBuilder: FormBuilder) {
+  constructor(private activateRoute: ActivatedRoute, private service: TrasladosService, private router: Router, private theFormBuilder: FormBuilder,
+    private serviciosService: ServiciosService
+  ) {
+    this.servicios=[];
     this.trySend = false;
     this.mode = 1;
-    this.traslado = { id: 0, origen: "", destino: "", fecha: new Date, servicio_id: 0};
+    this.traslado = { id: 0,
+      origen: "",
+      destino: "",
+      fecha: new Date, 
+      servicio:{
+        id: null
+      }
+    };
+  }
+
+  serviciosList(){
+    this.serviciosService.list().subscribe(data=>{
+      this.servicios=data
+    })
   }
 
   ngOnInit(): void {
+    this.serviciosList();
     this.configFormGroup();
     const currentUrl = this.activateRoute.snapshot.url.join('/');
     if (currentUrl.includes('view')) {
@@ -44,8 +64,8 @@ export class ManageComponent implements OnInit {
     this.theFormGroup = this.theFormBuilder.group({
       origen: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       destino: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      fecha: [null, Validators.required], // Modificamos el valor inicial a null
-      servicio_id: [0,[Validators.min(1),Validators.max(1000)]]
+      fecha: ["", Validators.required], // Modificamos el valor inicial a null
+      servicio_id: [null, Validators.required]
     });
   }
 

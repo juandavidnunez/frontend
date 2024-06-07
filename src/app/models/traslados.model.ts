@@ -1,7 +1,9 @@
+import { Servicios } from "./servicios.model"
+
 export class Traslados {
-    id?:number
-    origen:string
-    destino:string
-    fecha:Date
-    servicio_id?:number
+    id?:number;
+    origen:string;
+    destino:string;
+    fecha:Date;
+    servicio?:Servicios;
 }

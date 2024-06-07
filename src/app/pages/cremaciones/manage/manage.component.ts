@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cremaciones } from 'src/app/models/cremaciones.model';
+import { Servicios } from 'src/app/models/servicios.model';
 import { CremacionesService } from 'src/app/services/cremaciones.service';
+import { ServiciosService } from 'src/app/services/servicios.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,14 +17,32 @@ export class ManageComponent implements OnInit {
   cremacion:Cremaciones
   theFormGroup:FormGroup
   trySend:boolean
+  servicios:Servicios[]
 
-  constructor(private activateRoute:ActivatedRoute, private service: CremacionesService,private router:Router, private theFormBuilder: FormBuilder) {
+  constructor(private activateRoute:ActivatedRoute, private service: CremacionesService,private router:Router, private theFormBuilder: FormBuilder,
+    private serviciosService: ServiciosService
+  ) {
+    this.servicios=[]
     this.trySend=false
     this.mode=1;
-    this.cremacion={id: 0, ubicacion:"", fecha_hora: new Date, servicio_id: 0}
+    this.cremacion={
+      id: 0, 
+      ubicacion:"", 
+      fecha_hora: new Date,
+      servicio:{
+        id: null
+      }
+    }
+   }
+
+   serviciosList(){
+    this.serviciosService.list().subscribe(data=>{
+      this.servicios=data
+    })
    }
 
   ngOnInit(): void {
+    this.serviciosList()
     this.configFormGroup()
     const currentUrl= this.activateRoute.snapshot.url.join('/');
     if (currentUrl.includes('view')) {
@@ -45,7 +65,7 @@ export class ManageComponent implements OnInit {
       // lista, serán las reglas
       ubicacion:['',[Validators.required,Validators.minLength(2),Validators.maxLength(200)]],
       fecha_hora:[null, Validators.required],
-      servicio_id: [0,[Validators.min(1),Validators.max(1000)]]
+      idServicio:[null, Validators.required]
     })
   }
   get getTheFormGroup(){

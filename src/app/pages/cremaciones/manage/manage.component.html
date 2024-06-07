@@ -23,58 +23,52 @@
             </div>
             <form [formGroup]="theFormGroup">
 
-            <div class="row">
-              <div class="col-4">
-                Ubicación:
-              </div>
-              <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="cremacion.ubicacion"
-                 [disabled]="mode==1" formControlName="ubicacion">
+              <div class="row">
+                <div class="col-4">
+                  Ubicación:
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" [(ngModel)]="cremacion.ubicacion"
+                  [disabled]="mode==1" formControlName="ubicacion">
 
-                 <br>
-                 <div
-                 *ngIf="getTheFormGroup.ubicacion.errors &&(getTheFormGroup.ubicacion.dirty|| getTheFormGroup.ubicacion.touched)">
-                <strong *ngIf="getTheFormGroup.ubicacion.errors.required" class="msnError">Requerido</strong>
-                <strong *ngIf="getTheFormGroup.ubicacion.errors.minlength||getTheFormGroup.ubicacion.errors.maxlength" class="msnError">invalido</strong>
+                  <br>
+                  <div
+                  *ngIf="getTheFormGroup.ubicacion.errors &&(getTheFormGroup.ubicacion.dirty|| getTheFormGroup.ubicacion.touched)">
+                  <strong *ngIf="getTheFormGroup.ubicacion.errors.required" class="msnError">Requerido</strong>
+                  <strong *ngIf="getTheFormGroup.ubicacion.errors.minlength||getTheFormGroup.ubicacion.errors.maxlength" class="msnError">invalido</strong>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="row">
-              <div class="col-4">
-                Fecha Hora:
-              </div>
-              <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="cremacion.fecha_hora"
-                 [disabled]="mode==1" formControlName="fecha_hora">
+              <div class="row">
+                <div class="col-4">
+                  Fecha Hora:
+                </div>
+                <div class="col-8">
+                  <input type="date" class="form-control" [(ngModel)]="cremacion.fecha_hora"
+                  [disabled]="mode==1" formControlName="fecha_hora">
 
-                 <br>
-                 <div
-                 *ngIf="getTheFormGroup.fecha_hora.errors &&(getTheFormGroup.fecha_hora.dirty|| getTheFormGroup.fecha_hora.touched)">
-                <strong *ngIf="getTheFormGroup.fecha_hora.errors.required" class="msnError">Requerido</strong>
-                <strong *ngIf="getTheFormGroup.fecha_hora.errors.minlength||getTheFormGroup.fecha_hora.errors.maxlength" class="msnError">invalido</strong>
+                  <br>
+                  <div
+                  *ngIf="getTheFormGroup.fecha_hora.errors &&(getTheFormGroup.fecha_hora.dirty|| getTheFormGroup.fecha_hora.touched)">
+                  <strong *ngIf="getTheFormGroup.fecha_hora.errors.required" class="msnError">Requerido</strong>
+                  <strong *ngIf="getTheFormGroup.fecha_hora.errors.minlength||getTheFormGroup.fecha_hora.errors.maxlength" class="msnError">invalido</strong>
 
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="row">
-            <div class="col-4">
-                Servicio ID:
-            </div>
-            <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="cremacion.servicio_id"
-                [disabled]="mode==1" formControlName="servicio_id">
-
-                <br>
-                <div
-                *ngIf="getTheFormGroup.servicio_id.errors &&(getTheFormGroup.servicio_id.dirty|| getTheFormGroup.servicio_id.touched)">
-                <strong *ngIf="getTheFormGroup.servicio_id.errors.required" class="msnError">Requerido</strong>
-                <strong *ngIf="getTheFormGroup.servicio_id.errors.minlength||getTheFormGroup.servicio_id.errors.maxlength" class="msnError">invalido</strong>
+              <div class="row">
+                <div class="col-4">
+                    Servicio:
                 </div>
-            </div>
-            </div>
-          </form>
+                <div class="col-8">
+                    <select class="form-control" formControlName="idServicio" [(ngModel)]="cremacion.servicio.id">
+                      <option *ngFor="let option of servicios" [value]="option.id">Descripción: {{option.descripcion}}</option>
+                    </select>
+                </div>
+              </div>
+            </form>
 
             <div class="row">
               <div class="col-4"></div>

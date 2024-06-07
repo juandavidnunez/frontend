@@ -18,7 +18,7 @@
                 Id:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="suscripcion.id" disabled>
+                <input type="number" class="form-control" [(ngModel)]="suscripcion.id" disabled>
               </div>
             </div>
             <form [formGroup]="theFormGroup">
@@ -28,7 +28,7 @@
                 Fecha Inicio:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="suscripcion.fecha_inicio"
+                <input type="date" class="form-control" [(ngModel)]="suscripcion.fecha_inicio"
                  [disabled]="mode==1" formControlName="fecha_inicio">
 
                  <br>
@@ -45,7 +45,7 @@
                 Fecha Fin:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="suscripcion.fecha_fin"
+                <input type="date" class="form-control" [(ngModel)]="suscripcion.fecha_fin"
                  [disabled]="mode==1" formControlName="fecha_fin">
 
                  <br>
@@ -63,7 +63,7 @@
                   N° Beneficiarios:
                 </div>
                 <div class="col-8">
-                  <input type="text" class="form-control" [(ngModel)]="suscripcion.numero_beneficiaros"
+                  <input type="number" class="form-control" [(ngModel)]="suscripcion.numero_beneficiaros"
                    [disabled]="mode==1" formControlName="numero_beneficiaros">
   
                    <br>
@@ -80,7 +80,7 @@
                   Cliente ID:
                 </div>
                 <div class="col-8">
-                  <input type="text" class="form-control" [(ngModel)]="suscripcion.cliente_id"
+                  <input type="number" class="form-control" [(ngModel)]="suscripcion.cliente_id"
                    [disabled]="mode==1" formControlName="cliente_id">
   
                    <br>
@@ -97,7 +97,7 @@
                   Plan ID:
                 </div>
                 <div class="col-8">
-                  <input type="text" class="form-control" [(ngModel)]="suscripcion.plan_id"
+                  <input type="number" class="form-control" [(ngModel)]="suscripcion.plan_id"
                    [disabled]="mode==1" formControlName="plan_id">
   
                    <br>

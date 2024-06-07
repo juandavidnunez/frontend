@@ -7,6 +7,12 @@ $table-header-color: #333333; // Encabezado de tabla oscuro
 $table-row-color: #3e3e3e; // Fila de tabla
 $table-row-hover-color: #555555; // Fila de tabla al pasar el cursor
 
+// Degradados para los botones
+$create-gradient: linear-gradient(to right, red, orange);
+$view-gradient: linear-gradient(to right, blue, lightblue);
+$delete-gradient: linear-gradient(to right, crimson, lightcoral);
+$update-gradient: linear-gradient(to right, goldenrod, lightgoldenrodyellow);
+
 // Aplicar estilos
 .header {
   background-color: $header-color;
@@ -51,4 +57,45 @@ $table-row-hover-color: #555555; // Fila de tabla al pasar el cursor
 .table th,
 .table td {
   border: 1px solid $table-header-color;
+}
+
+// Estilos para los botones
+.btn-create {
+  background: $create-gradient;
+  border: none;
+  color: white;
+}
+
+.btn-create:hover {
+  background: linear-gradient(to right, darkred, darkorange);
+}
+
+.btn-view {
+  background: $view-gradient;
+  border: none;
+  color: white;
+}
+
+.btn-view:hover {
+  background: linear-gradient(to right, darkblue, deepskyblue);
+}
+
+.btn-delete {
+  background: $delete-gradient;
+  border: none;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: linear-gradient(to right, firebrick, indianred);
+}
+
+.btn-update {
+  background: $update-gradient;
+  border: none;
+  color: white;
+}
+
+.btn-update:hover {
+  background: linear-gradient(to right, goldenrod, khaki);
 }
