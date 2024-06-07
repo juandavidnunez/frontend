@@ -28,7 +28,7 @@
                 Fecha Pago:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="pago.fecha_pago"
+                <input type="date" class="form-control" [(ngModel)]="pago.fecha_pago"
                  [disabled]="mode==1" formControlName="fecha_pago">
 
                  <br>
@@ -45,7 +45,7 @@
                 Monto:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="pago.monto"
+                <input type="number" class="form-control" [(ngModel)]="pago.monto"
                  [disabled]="mode==1" formControlName="monto">
 
                  <br>
@@ -80,7 +80,7 @@
                     Suscripcion ID:
                 </div>
                 <div class="col-8">
-                    <input type="text" class="form-control" [(ngModel)]="pago.suscripcion_id"
+                    <input type="number" class="form-control" [(ngModel)]="pago.suscripcion_id"
                     [disabled]="mode==1" formControlName="suscripcion_id">
     
                     <br>

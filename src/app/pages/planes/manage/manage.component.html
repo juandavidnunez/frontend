@@ -45,7 +45,7 @@
                 Precio:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="plan.precio"
+                <input type="number" class="form-control" [(ngModel)]="plan.precio"
                  [disabled]="mode==1" formControlName="precio">
 
                  <br>
@@ -63,7 +63,7 @@
                 Duración:
             </div>
             <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="plan.duracion"
+                <input type="number" class="form-control" [(ngModel)]="plan.duracion"
                 [disabled]="mode==1" formControlName="duracion">
 
                 <br>
@@ -80,7 +80,7 @@
                     Descuento:
                 </div>
                 <div class="col-8">
-                    <input type="text" class="form-control" [(ngModel)]="plan.descuento"
+                    <input type="number" class="form-control" [(ngModel)]="plan.descuento"
                     [disabled]="mode==1" formControlName="descuento">
     
                     <br>
@@ -97,7 +97,7 @@
                     Precio Final:
                 </div>
                 <div class="col-8">
-                    <input type="text" class="form-control" [(ngModel)]="plan.precio_final"
+                    <input type="number" class="form-control" [(ngModel)]="plan.precio_final"
                     [disabled]="mode==1" formControlName="precio_final">
     
                     <br>

@@ -45,7 +45,7 @@
                 Fecha Mensaje:
               </div>
               <div class="col-8">
-                <input type="text" class="form-control" [(ngModel)]="mensaje.fecha_mensaje"
+                <input type="date" class="form-control" [(ngModel)]="mensaje.fecha_mensaje"
                  [disabled]="mode==1" formControlName="fecha_mensaje">
 
                  <br>
@@ -63,7 +63,7 @@
                     Chat ID:
                 </div>
                 <div class="col-8">
-                    <input type="text" class="form-control" [(ngModel)]="mensaje.chat_id"
+                    <input type="number" class="form-control" [(ngModel)]="mensaje.chat_id"
                     [disabled]="mode==1" formControlName="chat_id">
 
                     <br>
@@ -80,7 +80,7 @@
                     Chat ID:
                 </div>
                 <div class="col-8">
-                    <input type="text" class="form-control" [(ngModel)]="mensaje.user_id"
+                    <input type="number" class="form-control" [(ngModel)]="mensaje.user_id"
                     [disabled]="mode==1" formControlName="user_id">
 
                     <br>
