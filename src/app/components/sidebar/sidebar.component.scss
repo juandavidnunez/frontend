@@ -1,0 +1,44 @@
+/* archivo: estilos.css */
+
+/* Estilo para la imagen */
+.navbar-brand-img {
+    width: 100% !important; /* Permite que la imagen se expanda al tamaño completo del contenedor */
+    height: auto !important; /* Mantiene la proporción de la imagen */
+    max-width: none; /* Elimina el límite máximo de ancho */
+    max-height: none; /* Elimina el límite máximo de altura */
+  }
+  
+  /* Estilo fúnebre para la barra de navegación */
+  #sidenav-main {
+    background-color: #000000; /* Fondo negro */
+    color: #d3d3d3; /* Texto gris claro */
+  }
+  
+  #sidenav-main .nav-link,
+  #sidenav-main .navbar-brand {
+    color: #d3d3d3 !important; /* Asegura que los enlaces y el texto de la marca sean gris claro */
+  }
+  
+  #sidenav-main .nav-link:hover,
+  #sidenav-main .navbar-brand:hover {
+    color: #a9a9a9 !important; /* Color gris medio al pasar el mouse */
+  }
+  
+  #sidenav-main .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox%3D"0 0 30 30" xmlns%3D"http://www.w3.org/2000/svg"%3E%3Cpath stroke%3D"rgba%28211, 211, 211, 0.5%29" stroke-width%3D"2" stroke-linecap%3D"round" stroke-miterlimit%3D"10" d%3D"M4 7h22M4 15h22M4 23h22"%3E%3C/path%3E%3C/svg%3E');
+    /* Cambia el color del ícono del toggler a gris claro */
+  }
+  
+  #sidenav-main .dropdown-menu-arrow {
+    background-color: #1a1a1a; /* Fondo gris oscuro para el menú desplegable */
+    color: #d3d3d3; /* Texto gris claro */
+  }
+  
+  #sidenav-main .dropdown-item {
+    color: #d3d3d3 !important; /* Texto gris claro para los ítems del menú desplegable */
+  }
+  
+  #sidenav-main .dropdown-item:hover {
+    background-color: #333333; /* Fondo gris oscuro al pasar el mouse */
+  }
+  
