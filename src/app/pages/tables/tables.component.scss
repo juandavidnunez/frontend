@@ -10,6 +10,10 @@ body {
     margin: 0;
     padding: 0;
 }
+.header {
+    background-color: rgb(127, 44, 44);
+  }
+  
 
 /* Overlay to darken the background image for better readability */
 body::before {
@@ -47,8 +51,8 @@ body::before {
 
 /* Button styles */
 .btn {
-    background-color: #333;
-    border: 1px solid #444;
+    background-color: #1b1818;
+    border: 1px solid #4d1515;
     color: #E0E0E0;
     width: 100%;
     text-align: left;
@@ -59,8 +63,8 @@ body::before {
 }
 
 .btn:hover {
-    background-color: #444;
-    border-color: #555;
+    background-color: #611b1b;
+    border-color: #762626;
     color: #FFF;
 }
 
@@ -71,12 +75,12 @@ body::before {
 /* Specific button styles */
 .btn-outline-light {
     background: none;
-    border-color: #666;
+    border-color: #751919;
 }
 
 .btn-outline-light:hover {
-    background-color: #444;
-    border-color: #777;
+    background-color: #641919;
+    border-color: #671717;
 }
 
 .btn-lg {
@@ -85,7 +89,7 @@ body::before {
 
 /* Footer styles (if any) */
 footer {
-    background-color: #1f1f1f;
+    background-color: #1b1717;
     color: #E0E0E0;
     text-align: center;
     padding: 1rem 0;
@@ -93,7 +97,7 @@ footer {
 
 /* Additional styling for links, inputs, etc. */
 a {
-    color: #BBB;
+    color: #651e1e;
     text-decoration: none;
 }
 
@@ -103,20 +107,20 @@ a:hover {
 }
 
 input, textarea {
-    background-color: #1f1f1f;
+    background-color: #1f1e1e;
     color: #E0E0E0;
-    border: 1px solid #444;
+    border: 1px solid #651717;
     padding: 0.5rem;
     width: 100%;
     box-sizing: border-box;
 }
 
 input::placeholder, textarea::placeholder {
-    color: #777;
+    color: #3c0a0a;
 }
 
 input:focus, textarea:focus {
-    border-color: #555;
+    border-color: #591414;
     outline: none;
 }
 

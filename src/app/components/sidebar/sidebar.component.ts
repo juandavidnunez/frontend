@@ -11,13 +11,13 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '2' },
-    { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '2' },
-    { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '2' },
-    { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '1' },
-    { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '2' },
-    { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '0' },
-    { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '0' }
+    { path: '/dashboard', title: 'nosotros',  icon: 'ni-satisfied text-red', class: '2' },
+    { path: '/icons', title: 'chat',  icon:'ni-chat-round text-red', class: '1' },
+    { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-red', class: '2' },
+    { path: '/user-profile', title: 'perfil',  icon:'ni-single-02 text-red', class: '1' },
+    { path: '/tables', title: 'utilidades',  icon:'ni-sound-wave text-red', class: '2' },
+    { path: '/login', title: 'Login',  icon:'ni-key-25 text-red', class: '0' },
+    { path: '/register', title: 'Register',  icon:'ni-circle-08 text-red', class: '0' }
 ];
 
 @Component({
