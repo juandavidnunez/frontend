@@ -31,6 +31,10 @@ export const AdminLayoutRoutes: Routes = [
         canActivate:[AuthGuard],
     loadChildren: () => import('src/app/pages/servicios/servicios.module').then(m => m.ServiciosModule)
     },
+    {path:"servi",
+        canActivate:[AuthGuard],
+    loadChildren: () => import('src/app/pages/servi/servi.module').then(m => m.ServiModule)
+    },
     {path:"traslados",
         canActivate:[AuthGuard],
     loadChildren: () => import('src/app/pages/traslados/traslados.module').then(m => m.TrasladosModule)
