@@ -66,8 +66,7 @@ export class ListComponent implements OnInit {
     console.log('Actualizar servicio con id:', id);
   }
 
-  createServicio(): void {
-    this.router.navigate(["servicios/create"])
-    console.log('Crear un nuevo servicio');
+  volverServicio(): void {
+    this.router.navigate(["servi/list"])
   }
 }

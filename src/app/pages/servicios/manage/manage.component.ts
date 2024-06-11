@@ -70,6 +70,9 @@ export class ManageComponent implements OnInit {
       this.router.navigate(["servicios/list"]);
     });
   }
+  volverServicio(): void {
+    this.router.navigate(["servi/list"])
+  }
 
   update() {
     if (this.theFormGroup.invalid) {

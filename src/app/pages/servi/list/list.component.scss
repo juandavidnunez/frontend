@@ -60,13 +60,13 @@ $update-gradient: linear-gradient(to right, goldenrod, lightgoldenrodyellow);
 }
 
 // Estilos para los botones
-.btn-success {
+.btn-volver {
   background: $create-gradient;
   border: none;
   color: white;
 }
 
-.btn-success:hover {
+.btn-volver:hover {
   background: linear-gradient(to right, darkred, darkorange);
 }
 

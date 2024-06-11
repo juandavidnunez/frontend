@@ -90,4 +90,5 @@ export class ManageComponent implements OnInit {
       this.router.navigate(["sede/list"]);
     });
   }
+  
 }

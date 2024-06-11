@@ -21,7 +21,7 @@ export let ROUTES: RouteInfo[] = [
   },
   { path: '/dashboard', title: 'nosotros',  icon: 'ni-satisfied  text-red', class: '1' },
   { path: '/icons', title: 'chat',  icon: 'ni-chat-round text-red', class: '1' },
-  { path: '/maps', title: 'sedes',  icon: 'ni-pin-3 text-red', class: '2' },
+  { path: '/sede/list', title: 'sedes',  icon: 'ni-pin-3 text-red', class: '2' },
   { path: '/user-profile', title: 'perfil',  icon: 'ni-single-02 text-red', class: '1' },
   { path: '/tables', title: 'utilidades',  icon: 'ni-sound-wave text-red', class: '2' },
   { path: '/login', title: 'Login',  icon: 'ni-key-25 text-red', class: '0' },

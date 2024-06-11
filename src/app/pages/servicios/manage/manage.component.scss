@@ -21,6 +21,15 @@ $update-gradient: linear-gradient(to right, goldenrod, lightgoldenrodyellow);
 .container-fluid {
   background-color: $background-color;
 }
+.btn-volver {
+  background: $create-gradient;
+  border: none;
+  color: white;
+}
+
+.btn-volver:hover {
+  background: linear-gradient(to right, darkred, darkorange);
+}
 
 .card {
   background-color: $card-background-color;
