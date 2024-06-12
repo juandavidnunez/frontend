@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Sala } from 'src/app/models/sala.model';
+import { Sede } from 'src/app/models/sede.model';
 import { SalaService } from 'src/app/services/sala.service';
+import { SedeService } from 'src/app/services/sede.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,8 +17,10 @@ export class ManageComponent implements OnInit {
   sala: Sala;
   theFormGroup: FormGroup;
   trySend: boolean;
+  sedes: Sede[]
 
-  constructor(private activateRoute: ActivatedRoute, private service: SalaService, private router: Router, private theFormBuilder: FormBuilder) {
+  constructor(private activateRoute: ActivatedRoute, private service: SalaService,
+    private sedeService: SedeService, private router: Router, private theFormBuilder: FormBuilder) {
     this.trySend = false;
     this.mode = 1;
     this.sala = {
@@ -24,11 +28,19 @@ export class ManageComponent implements OnInit {
       nombre: "",
       capacidad: 0,
       disponibilidad: false,
-      sede_id: 0
+      sede_id: {
+        id:null
+      }
     };
   }
+ sedeList(){
+  this.sedeService.list().subscribe(data=>{
+    this.sedes=data
+  })
 
+ }
   ngOnInit(): void {
+    this.sedeList();
     this.configFormGroup();
     const currentUrl = this.activateRoute.snapshot.url.join('/');
     if (currentUrl.includes('view')) {
@@ -51,7 +63,7 @@ export class ManageComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       capacidad: [0, [Validators.required, Validators.min(1), Validators.max(9999)]],
       disponibilidad: [false, [Validators.required]],
-      sede_id: [0, [Validators.required, Validators.min(1), Validators.max(100)]]
+      sede_id: [null, [Validators.required]]
     });
   }
 

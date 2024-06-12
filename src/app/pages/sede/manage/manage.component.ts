@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Ciudades } from 'src/app/models/ciudades.model';
 import { Sede } from 'src/app/models/sede.model';
+import { CiudadesService } from 'src/app/services/ciudades.service';
 import { SedeService } from 'src/app/services/sede.service';
 import Swal from 'sweetalert2';
 
@@ -15,8 +17,8 @@ export class ManageComponent implements OnInit {
   sede: Sede;
   theFormGroup: FormGroup;
   trySend: boolean;
-
-  constructor(private activateRoute: ActivatedRoute, private service: SedeService, private router: Router, private theFormBuilder: FormBuilder) {
+  ciudades: Ciudades[]
+  constructor(private activateRoute: ActivatedRoute, private service: SedeService,private ciudadesService: CiudadesService, private router: Router, private theFormBuilder: FormBuilder) {
     this.trySend = false;
     this.mode = 1;
     this.sede = {
@@ -25,11 +27,19 @@ export class ManageComponent implements OnInit {
       direccion: "",
       telefono: 0,
       correo_electronico: "",
-      ciudad_id: 0
+      ciudad_id:{
+        id: null,
+      }
     };
+  }
+  ciudadesList(){
+    this.ciudadesService.list().subscribe(data=>{
+      this.ciudades=data
+    })
   }
 
   ngOnInit(): void {
+    this.ciudadesList();
     this.configFormGroup();
     const currentUrl = this.activateRoute.snapshot.url.join('/');
     if (currentUrl.includes('view')) {
@@ -51,8 +61,8 @@ export class ManageComponent implements OnInit {
     this.theFormGroup = this.theFormBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       direccion: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-      telefono: [0, [Validators.required, Validators.min(1), Validators.max(9999999999)]],
-      ciudad_id: [0, [Validators.required, Validators.min(1), Validators.max(100)]],
+      telefono: [0, [Validators.required, Validators.min(1), Validators.max(999999999999)]],
+      ciudad_id: [null, [Validators.required ]],
       correo_electronico: ['', [Validators.required, Validators.email, Validators.minLength(2), Validators.maxLength(40)]]
     });
   }

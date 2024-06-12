@@ -34,22 +34,19 @@
                 </div>
               </div>
 
-              <div class="row mb-3">
-                <div class="col-4">departamento_id:</div>
+           
+
+              <div class="row">
+                <div class="col-4">
+                  departamentos:
+                </div>
                 <div class="col-8">
-                  <input
-                    type="number"
-                    class="form-control"
-                    [(ngModel)]="ciudad.departamento_id"
-                    [disabled]="mode == 1"
-                    formControlName="departamento_id"
-                  >
-                  <div *ngIf="formControls.departamento_id.errors && (formControls.departamento_id.dirty || formControls.departamento_id.touched)" class="text-danger">
-                    <strong *ngIf="formControls.departamento_id.errors.required">Requerido</strong>
-                    <strong *ngIf="formControls.departamento_id.errors.min || formControls.departamento_id.errors.max">Inválido</strong>
-                  </div>
+                  <select class="form-control" formControlName="idepartamento_id" [(ngModel)]="ciudad.departamento_id">
+                    <option *ngFor="let option of departamentos" [value]="option.id">{{option.nombre}}</option>
+                  </select>
                 </div>
               </div>
+              
             </form>
             <div class="row">
               <div class="col-4"></div>

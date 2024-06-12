@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Ciudades } from 'src/app/models/ciudades.model';
 import { Departamentos } from 'src/app/models/departamentos.model';
+import { CiudadesService } from 'src/app/services/ciudades.service';
 import { DepartamentosService } from 'src/app/services/departamentos.service';
 import Swal from 'sweetalert2';
 
@@ -16,7 +18,7 @@ export class ManageComponent implements OnInit {
   theFormGroup:FormGroup
   trySend:boolean
 
-  constructor(private activateRoute:ActivatedRoute, private service: DepartamentosService,private router:Router, private theFormBuilder: FormBuilder) {
+  constructor(private activateRoute:ActivatedRoute, private service: DepartamentosService,private relacion : CiudadesService,private router:Router, private theFormBuilder: FormBuilder) {
     this.trySend=false
     this.mode=1;
     this.departamento={id:0,nombre:""}
@@ -43,7 +45,8 @@ export class ManageComponent implements OnInit {
     this.theFormGroup=this.theFormBuilder.group({
       // primer elemento del vector, valor por defecto
       // lista, serán las reglas
-      nombre:['',[Validators.required,Validators.minLength(2),Validators.maxLength(20)]]
+      nombre:['',[Validators.required,Validators.minLength(2),Validators.maxLength(20)]],
+      idCiudad:[null,Validators.required]
     })
   }
   get getTheFormGroup(){
@@ -57,8 +60,10 @@ export class ManageComponent implements OnInit {
     this.service.view(id).subscribe(data=>{
       this.departamento=data
       console.log(JSON.stringify(this.departamento));
+      
 
     })
+    
   }  
 
   create(){

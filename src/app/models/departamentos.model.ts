@@ -2,7 +2,7 @@ import { Ciudades } from "./ciudades.model";
 
 export class Departamentos {
     id?:number;
-    nombre:string;
+    nombre?:string;
     ciudades?:Ciudades[];
 
 }

@@ -64,22 +64,20 @@
                   </div>
                 </div>
               </div>
-              <div class="row mb-3">
-                <div class="col-4">Sede ID:</div>
+             
+
+
+              <div class="row">
+                <div class="col-4">
+                  sedes:
+                </div>
                 <div class="col-8">
-                  <input
-                    type="number"
-                    class="form-control"
-                    [(ngModel)]="sala.sede_id"
-                    [disabled]="mode == 1"
-                    formControlName="sede_id"
-                  >
-                  <div *ngIf="formControls.sede_id.errors && (formControls.sede_id.dirty || formControls.sede_id.touched)" class="text-danger">
-                    <strong *ngIf="formControls.sede_id.errors.required">Requerido</strong>
-                    <strong *ngIf="formControls.sede_id.errors.min || formControls.sede_id.errors.max">Inválido</strong>
-                  </div>
+                  <select class="form-control" formControlName="sede_id" [(ngModel)]="sala.sede_id">
+                    <option *ngFor="let option of sedes" [value]="option.id">{{option.nombre}}</option>
+                  </select>
                 </div>
               </div>
+
             </form>
             <div class="row">
               <div class="col-4"></div>

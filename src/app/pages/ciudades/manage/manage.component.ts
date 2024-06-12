@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ciudades } from 'src/app/models/ciudades.model';
+import { Departamentos } from 'src/app/models/departamentos.model';
 import { CiudadesService } from 'src/app/services/ciudades.service';
+import { DepartamentosService } from 'src/app/services/departamentos.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,8 +17,9 @@ export class ManageComponent implements OnInit {
   ciudad: Ciudades;
   theFormGroup: FormGroup;
   trySend: boolean;
-
+departamentos : Departamentos[]
   constructor(
+    private departamentosServices: DepartamentosService,
     private activateRoute: ActivatedRoute,
     private service: CiudadesService,
     private router: Router,
@@ -24,10 +27,20 @@ export class ManageComponent implements OnInit {
   ) {
     this.trySend = false;
     this.mode = 1;
-    this.ciudad = { id: 0, nombre: '', departamento_id: 0 };
+    this.ciudad = { id: 0, nombre: '', departamento_id: {
+      id: null,
+    } };
+    this.departamentos=[]
+    
+  }
+  departamentosList(){
+    this.departamentosServices.list().subscribe(data=>{
+      this.departamentos=data
+    })
   }
 
   ngOnInit(): void {
+    this.departamentosList();
     this.configFormGroup();
     this.setMode();
     if (this.activateRoute.snapshot.params.id) {
@@ -49,8 +62,8 @@ export class ManageComponent implements OnInit {
 
   configFormGroup(): void {
     this.theFormGroup = this.formBuilder.group({
-      departamento_id:[0,[Validators.required,Validators.min(1),Validators.max(100)]],
-      nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]]
+      nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+      idepartamento_id: [null,Validators.required]
     });
   }
 
@@ -65,6 +78,7 @@ export class ManageComponent implements OnInit {
   }
 
   create(): void {
+    console.log(JSON.stringify(this.ciudad))
     if (this.theFormGroup.invalid) {
       this.trySend = true;
       Swal.fire("Error en el formulario", "Ingrese correctamente los datos solicitados", "error");
