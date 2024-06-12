@@ -23,7 +23,7 @@ import { AuthGuard } from './guards/auth.guard';
     HttpClientModule,
     ComponentsModule,
     NgbModule,
-    RouterModule,
+    RouterModule, 
     AppRoutingModule
   ],
   declarations: [

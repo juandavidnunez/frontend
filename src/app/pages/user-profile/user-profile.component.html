@@ -5,9 +5,9 @@
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white">Hola Jesse</h1>
+        <h1 class="display-2 text-white">Hola {{theUser.name}}</h1>
         <p class="text-white mt-0 mb-5">Esta es tu página de perfil. Puedes ver el progreso que has hecho con tu trabajo y gestionar tus proyectos o tareas asignadas.</p>
-        <a href="#!" class="btn btn-info">Editar perfil</a>
+        <a href="#!" class="btn btn-info" style="background-color: #600a0a;">Editar perfil</a>
       </div>
     </div>
   </div>
@@ -25,39 +25,31 @@
             </div>
           </div>
         </div>
-        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-          <div class="d-flex justify-content-between">
-            <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Conectar</a>
-            <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Mensaje</a>
+        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4" style="background-color: #1b1a1a;">
+          <div class="d-flex justify-content-between" >
+            <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4" style="background-color: #600a0a;">plan</a>
+            <a href="javascript:void(0)" class="btn btn-sm btn-default float-right" style="background-color: #590909;">Mensaje</a>
           </div>
         </div>
         <div class="card-body pt-0 pt-md-4">
           <div class="row">
             <div class="col">
               <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                <div>
-                  <span class="heading">22</span>
-                  <span class="description">Amigos</span>
-                </div>
-                <div>
-                  <span class="heading">10</span>
-                  <span class="description">Fotos</span>
-                </div>
-                <div>
-                  <span class="heading">89</span>
-                  <span class="description">Comentarios</span>
-                </div>
+                
+                
+                <a href="javascript:void(0)" class="btn btn-sm btn-default float-right" style="background-color: #590909;">mis comentarios</a>
+
               </div>
             </div>
           </div>
-          <div class="text-center">
-            <h3>
-              Jessica Jones<span class="font-weight-light">, 27</span>
+          <div class="text-center text-white">
+            <h3 class="text-white">
+              {{theUser.name}}<span class="font-weight-light text-white">, 27</span>
             </h3>
-            <div class="h5 font-weight-300">
-              <i class="ni location_pin mr-2"></i>Bucarest, Rumania
+            <div class="h5 font-weight-300 text-white">
+              <i class="ni location_pin mr-2 text-white"></i>{{theUser.role.name}}
             </div>
-            <div class="h5 mt-4">
+            <div class="h5 mt-4 text-white">
               <i class="ni business_briefcase-24 mr-2"></i>Gerente de Soluciones - Oficial de Creative Tim
             </div>
             <div>
@@ -66,100 +58,10 @@
             <hr class="my-4" />
             <p>Ryan — el nombre tomado por Nick Murphy, criado en Melbourne y con base en Brooklyn — escribe, interpreta y graba toda su propia música.</p>
             <a href="javascript:void(0)">Mostrar más</a>
-          </div>
+          </div>    
         </div>
       </div>
     </div>
-    <div class="col-xl-8 order-xl-1">
-      <div class="card bg-dark shadow">
-        <div class="card-header bg-black border-0">
-          <div class="row align-items-center">
-            <div class="col-8">
-              <h3 class="mb-0">Mi cuenta</h3>
-            </div>
-            <div class="col-4 text-right">
-              <a href="#!" class="btn btn-sm btn-primary">Configuraciones</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <form>
-            <h6 class="heading-small text-muted mb-4">Información del usuario</h6>
-            <div class="pl-lg-4">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-username">Nombre de usuario</label>
-                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Nombre de usuario" value="lucky.jesse">
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-email">Correo electrónico</label>
-                    <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="Correo electrónico">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-first-name">Nombre</label>
-                    <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="Nombre" value="Lucky">
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-last-name">Apellido</label>
-                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Apellido" value="Jesse">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr class="my-4" />
-            <!-- Address -->
-            <h6 class="heading-small text-muted mb-4">Información de contacto</h6>
-            <div class="pl-lg-4">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-address">Dirección</label>
-                    <input id="input-address" class="form-control form-control-alternative" placeholder="Dirección" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-4">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-city">Ciudad</label>
-                    <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="Ciudad" value="Nueva York">
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-country">País</label>
-                    <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="País" value="Estados Unidos">
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-postal-code">Código postal</label>
-                    <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Código postal">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr class="my-4" />
-            <!-- Description -->
-            <h6 class="heading-small text-muted mb-4">Acerca de mí</h6>
-            <div class="pl-lg-4">
-              <div class="form-group">
-                <label>Acerca de mí</label>
-                <textarea rows="4" class="form-control form-control-alternative" placeholder="Unas pocas palabras sobre ti ...">Un hermoso panel para Bootstrap 4. Es gratis y de código abierto.</textarea>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+   
   </div>
 </div>
