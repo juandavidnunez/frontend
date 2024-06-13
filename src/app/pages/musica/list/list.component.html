@@ -1,0 +1,42 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Button for creating new department -->
+  <div class="row mb-3">
+    <div class="col">
+      <button class="btn btn-create" (click)="createDepartment()">
+        <i class="fas fa-hand-paper"></i> Crear
+      </button>
+    </div>
+  </div>
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 class="mb-0">musica</h3>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="col-1">ID</th>
+                <th class="col-3">Nombre</th>
+                <th class="col-3">costo</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let actual of musica">
+                <td>{{actual.id}}</td>
+                <td>{{actual.nombre_grupo}}</td>
+                <td>{{actual.valor_hora}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

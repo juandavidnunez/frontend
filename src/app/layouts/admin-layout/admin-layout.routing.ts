@@ -87,6 +87,14 @@ export const AdminLayoutRoutes: Routes = [
         canActivate:[AuthGuard],
     loadChildren: () => import('src/app/pages/sala/sala.module').then(m => m.SalaModule)
     },
+    {path:"tipo",
+        canActivate:[AuthGuard],
+    loadChildren: () => import('src/app/pages/tipo/tipo.module').then(m => m.TipoModule)
+    },
+    {path:"musica",
+        canActivate:[AuthGuard],
+    loadChildren: () => import('src/app/pages/musica/musica.module').then(m => m.MusicaModule)
+    },
     {path:"feretro",
         canActivate:[AuthGuard],
         loadChildren: () => import('src/app/pages/feretro/feretro.module').then(m => m.FeretroModule)
